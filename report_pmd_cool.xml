@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.2.5" timestamp="2011-05-30T21:57:09.045">
+<file name="com\dcgenerator\web\actions\AddExecutionPlanAction.java">
+<violation beginline="19" endline="138" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The class 'AddExecutionPlanAction' has a Cyclomatic Complexity of 5 (Highest = 18).
+</violation>
+<violation beginline="21" endline="21" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="AddExecutionPlanAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="24" endline="24" begincolumn="37" endcolumn="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="AddExecutionPlanAction" variable="response" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'response'.
+</violation>
+<violation beginline="30" endline="114" begincolumn="16" endcolumn="5" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" class="AddExecutionPlanAction" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The method 'execute' has a Cyclomatic Complexity of 18.
+</violation>
+<violation beginline="38" endline="39" begincolumn="17" endcolumn="118" rule="ForLoopsMustUseBraces" ruleset="Braces Rules" package="com.dcgenerator.web.actions" class="AddExecutionPlanAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#ForLoopsMustUseBraces" priority="3">
+Avoid using for statements without curly braces
+</violation>
+<violation beginline="79" endline="80" begincolumn="49" endcolumn="125" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="com.dcgenerator.web.actions" class="AddExecutionPlanAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="79" endline="80" begincolumn="49" endcolumn="125" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="com.dcgenerator.web.actions" class="AddExecutionPlanAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\AddExecutionplanIndexAction.java">
+<violation beginline="18" endline="18" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="AddExecutionplanIndexAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="22" endline="22" begincolumn="37" endcolumn="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="AddExecutionplanIndexAction" variable="response" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'response'.
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\ApplicationCreateAction.java">
+<violation beginline="11" endline="91" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The class 'ApplicationCreateAction' has a Cyclomatic Complexity of 3 (Highest = 11).
+</violation>
+<violation beginline="12" endline="12" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="ApplicationCreateAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="15" endline="15" begincolumn="37" endcolumn="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="ApplicationCreateAction" variable="response" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'response'.
+</violation>
+<violation beginline="19" endline="70" begincolumn="16" endcolumn="5" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" class="ApplicationCreateAction" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The method 'execute' has a Cyclomatic Complexity of 11.
+</violation>
+<violation beginline="30" endline="31" begincolumn="17" endcolumn="53" rule="ForLoopsMustUseBraces" ruleset="Braces Rules" package="com.dcgenerator.web.actions" class="ApplicationCreateAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#ForLoopsMustUseBraces" priority="3">
+Avoid using for statements without curly braces
+</violation>
+<violation beginline="57" endline="58" begincolumn="41" endcolumn="85" rule="ForLoopsMustUseBraces" ruleset="Braces Rules" package="com.dcgenerator.web.actions" class="ApplicationCreateAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#ForLoopsMustUseBraces" priority="3">
+Avoid using for statements without curly braces
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\CopyExecutionPlanAction.java">
+<violation beginline="15" endline="76" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The class 'CopyExecutionPlanAction' has a Cyclomatic Complexity of 3 (Highest = 7).
+</violation>
+<violation beginline="17" endline="17" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="CopyExecutionPlanAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="20" endline="20" begincolumn="37" endcolumn="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="CopyExecutionPlanAction" variable="response" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'response'.
+</violation>
+<violation beginline="23" endline="63" begincolumn="16" endcolumn="5" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" class="CopyExecutionPlanAction" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The method 'execute' has a Cyclomatic Complexity of 7.
+</violation>
+<violation beginline="41" endline="42" begincolumn="33" endcolumn="76" rule="WhileLoopsMustUseBraces" ruleset="Braces Rules" package="com.dcgenerator.web.actions" class="CopyExecutionPlanAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#WhileLoopsMustUseBraces" priority="3">
+Avoid using while statements without curly braces
+</violation>
+<violation beginline="47" endline="48" begincolumn="41" endcolumn="104" rule="ForLoopsMustUseBraces" ruleset="Braces Rules" package="com.dcgenerator.web.actions" class="CopyExecutionPlanAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#ForLoopsMustUseBraces" priority="3">
+Avoid using for statements without curly braces
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\CopyExecutionPlanIndexAction.java">
+<violation beginline="13" endline="80" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The class 'CopyExecutionPlanIndexAction' has a Cyclomatic Complexity of 3 (Highest = 8).
+</violation>
+<violation beginline="14" endline="14" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="CopyExecutionPlanIndexAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="16" endline="16" begincolumn="37" endcolumn="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="CopyExecutionPlanIndexAction" variable="response" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'response'.
+</violation>
+<violation beginline="21" endline="66" begincolumn="16" endcolumn="5" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" class="CopyExecutionPlanIndexAction" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The method 'execute' has a Cyclomatic Complexity of 8.
+</violation>
+<violation beginline="42" endline="43" begincolumn="33" endcolumn="76" rule="WhileLoopsMustUseBraces" ruleset="Braces Rules" package="com.dcgenerator.web.actions" class="CopyExecutionPlanIndexAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#WhileLoopsMustUseBraces" priority="3">
+Avoid using while statements without curly braces
+</violation>
+<violation beginline="48" endline="49" begincolumn="41" endcolumn="104" rule="ForLoopsMustUseBraces" ruleset="Braces Rules" package="com.dcgenerator.web.actions" class="CopyExecutionPlanIndexAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#ForLoopsMustUseBraces" priority="3">
+Avoid using for statements without curly braces
+</violation>
+<violation beginline="51" endline="52" begincolumn="41" endcolumn="104" rule="ForLoopsMustUseBraces" ruleset="Braces Rules" package="com.dcgenerator.web.actions" class="CopyExecutionPlanIndexAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#ForLoopsMustUseBraces" priority="3">
+Avoid using for statements without curly braces
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\CreateNewWorkflowAction.java">
+<violation beginline="18" endline="124" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The class 'CreateNewWorkflowAction' has a Cyclomatic Complexity of 2 (Highest = 10).
+</violation>
+<violation beginline="22" endline="22" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="CreateNewWorkflowAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="24" endline="24" begincolumn="37" endcolumn="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="CreateNewWorkflowAction" variable="response" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'response'.
+</violation>
+<violation beginline="29" endline="85" begincolumn="12" endcolumn="5" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" class="CreateNewWorkflowAction" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The method 'execute' has a Cyclomatic Complexity of 10.
+</violation>
+<violation beginline="73" endline="74" begincolumn="33" endcolumn="78" rule="ForLoopsMustUseBraces" ruleset="Braces Rules" package="com.dcgenerator.web.actions" class="CreateNewWorkflowAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#ForLoopsMustUseBraces" priority="3">
+Avoid using for statements without curly braces
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\CreateNewWorkflowIndexAction.java">
+<violation beginline="17" endline="17" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="CreateNewWorkflowIndexAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="19" endline="19" begincolumn="37" endcolumn="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="CreateNewWorkflowIndexAction" variable="response" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'response'.
+</violation>
+<violation beginline="20" endline="20" begincolumn="29" endcolumn="35" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="CreateNewWorkflowIndexAction" variable="session" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'session'.
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\DCAddStepDetailsAction.java">
+<violation beginline="11" endline="11" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="DCAddStepDetailsAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="13" endline="13" begincolumn="29" endcolumn="35" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="DCAddStepDetailsAction" variable="session" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'session'.
+</violation>
+<violation beginline="14" endline="14" begincolumn="37" endcolumn="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="DCAddStepDetailsAction" variable="response" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'response'.
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\DCGeneratorSupport.java">
+<violation beginline="18" endline="18" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="DCGeneratorSupport" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="19" endline="19" begincolumn="36" endcolumn="42" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="DCGeneratorSupport" variable="request" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'request'.
+</violation>
+<violation beginline="20" endline="20" begincolumn="37" endcolumn="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="DCGeneratorSupport" variable="response" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'response'.
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\DeleteExecutionPlanAction.java">
+<violation beginline="18" endline="93" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The class 'DeleteExecutionPlanAction' has a Cyclomatic Complexity of 4 (Highest = 10).
+</violation>
+<violation beginline="22" endline="22" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="DeleteExecutionPlanAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="24" endline="24" begincolumn="37" endcolumn="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="DeleteExecutionPlanAction" variable="response" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'response'.
+</violation>
+<violation beginline="28" endline="79" begincolumn="16" endcolumn="5" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" class="DeleteExecutionPlanAction" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The method 'execute' has a Cyclomatic Complexity of 10.
+</violation>
+<violation beginline="51" endline="52" begincolumn="33" endcolumn="69" rule="WhileLoopsMustUseBraces" ruleset="Braces Rules" package="com.dcgenerator.web.actions" class="DeleteExecutionPlanAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#WhileLoopsMustUseBraces" priority="3">
+Avoid using while statements without curly braces
+</violation>
+<violation beginline="63" endline="64" begincolumn="41" endcolumn="107" rule="ForLoopsMustUseBraces" ruleset="Braces Rules" package="com.dcgenerator.web.actions" class="DeleteExecutionPlanAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#ForLoopsMustUseBraces" priority="3">
+Avoid using for statements without curly braces
+</violation>
+<violation beginline="66" endline="67" begincolumn="41" endcolumn="107" rule="ForLoopsMustUseBraces" ruleset="Braces Rules" package="com.dcgenerator.web.actions" class="DeleteExecutionPlanAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#ForLoopsMustUseBraces" priority="3">
+Avoid using for statements without curly braces
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\GetApplicationAction.java">
+<violation beginline="18" endline="198" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The class 'GetApplicationAction' has a Cyclomatic Complexity of 6 (Highest = 20).
+</violation>
+<violation beginline="20" endline="20" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="GetApplicationAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="22" endline="22" begincolumn="37" endcolumn="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="GetApplicationAction" variable="response" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'response'.
+</violation>
+<violation beginline="25" endline="182" begincolumn="16" endcolumn="9" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" class="GetApplicationAction" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The method 'execute' has a Cyclomatic Complexity of 20.
+</violation>
+<violation beginline="38" endline="38" begincolumn="54" endcolumn="56" rule="UnusedLocalVariable" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="GetApplicationAction" method="execute" variable="sb1" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'sb1'.
+</violation>
+<violation beginline="42" endline="42" begincolumn="54" endcolumn="61" rule="UnusedLocalVariable" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="GetApplicationAction" method="execute" variable="workList" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'workList'.
+</violation>
+<violation beginline="154" endline="154" begincolumn="52" endcolumn="55" rule="NullAssignment" ruleset="Controversial Rules" package="com.dcgenerator.web.actions" class="GetApplicationAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#NullAssignment" priority="3">
+Assigning an Object to null is a code smell.  Consider refactoring.
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\ReadApplicationAction.java">
+<violation beginline="15" endline="97" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The class 'ReadApplicationAction' has a Cyclomatic Complexity of 2 (Highest = 7).
+</violation>
+<violation beginline="17" endline="17" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="ReadApplicationAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="24" endline="76" begincolumn="16" endcolumn="5" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" class="ReadApplicationAction" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The method 'execute' has a Cyclomatic Complexity of 7.
+</violation>
+<violation beginline="30" endline="31" begincolumn="25" endcolumn="93" rule="WhileLoopsMustUseBraces" ruleset="Braces Rules" package="com.dcgenerator.web.actions" class="ReadApplicationAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#WhileLoopsMustUseBraces" priority="3">
+Avoid using while statements without curly braces
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\SaveCopiedExecutionPlanAction.java">
+<violation beginline="15" endline="164" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The class 'SaveCopiedExecutionPlanAction' has a Cyclomatic Complexity of 2 (Highest = 7).
+</violation>
+<violation beginline="17" endline="17" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="SaveCopiedExecutionPlanAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="23" endline="23" begincolumn="37" endcolumn="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="SaveCopiedExecutionPlanAction" variable="response" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'response'.
+</violation>
+<violation beginline="27" endline="85" begincolumn="16" endcolumn="5" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" class="SaveCopiedExecutionPlanAction" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The method 'execute' has a Cyclomatic Complexity of 7.
+</violation>
+<violation beginline="31" endline="31" begincolumn="16" endcolumn="23" rule="UnusedLocalVariable" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="SaveCopiedExecutionPlanAction" method="execute" variable="stepName" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'stepName'.
+</violation>
+<violation beginline="87" endline="135" begincolumn="16" endcolumn="9" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" class="SaveCopiedExecutionPlanAction" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The method 'copyStep' has a Cyclomatic Complexity of 5.
+</violation>
+<violation beginline="101" endline="101" begincolumn="24" endcolumn="32" rule="UnusedLocalVariable" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="SaveCopiedExecutionPlanAction" method="copyStep" variable="stepName1" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'stepName1'.
+</violation>
+<violation beginline="102" endline="102" begincolumn="20" endcolumn="28" rule="UnusedLocalVariable" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="SaveCopiedExecutionPlanAction" method="copyStep" variable="agentName" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'agentName'.
+</violation>
+<violation beginline="120" endline="120" begincolumn="24" endcolumn="32" rule="UnusedLocalVariable" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="SaveCopiedExecutionPlanAction" method="copyStep" variable="stepName2" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'stepName2'.
+</violation>
+<violation beginline="121" endline="121" begincolumn="24" endcolumn="32" rule="UnusedLocalVariable" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="SaveCopiedExecutionPlanAction" method="copyStep" variable="agentName" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'agentName'.
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\SaveStepsAction.java">
+<violation beginline="24" endline="199" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The class 'SaveStepsAction' has a Cyclomatic Complexity of 5 (Highest = 16).
+</violation>
+<violation beginline="27" endline="27" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="SaveStepsAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="36" endline="125" begincolumn="16" endcolumn="5" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" class="SaveStepsAction" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The method 'execute' has a Cyclomatic Complexity of 16.
+</violation>
+<violation beginline="119" endline="120" begincolumn="26" endcolumn="25" rule="EmptyCatchBlock" ruleset="Basic Rules" package="com.dcgenerator.web.actions" class="SaveStepsAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+<violation beginline="119" endline="120" begincolumn="26" endcolumn="25" rule="EmptyCatchBlock" ruleset="Basic Rules" package="com.dcgenerator.web.actions" class="SaveStepsAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+<violation beginline="128" endline="171" begincolumn="16" endcolumn="5" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" class="SaveStepsAction" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The method 'saveAll' has a Cyclomatic Complexity of 8.
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\SetApplicationAction.java">
+<violation beginline="18" endline="18" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="SetApplicationAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="21" endline="21" begincolumn="37" endcolumn="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="SetApplicationAction" variable="response" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'response'.
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\SetWorkflowAction.java">
+<violation beginline="22" endline="22" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="SetWorkflowAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="24" endline="24" begincolumn="37" endcolumn="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="SetWorkflowAction" variable="response" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'response'.
+</violation>
+<violation beginline="34" endline="34" begincolumn="16" endcolumn="22" rule="UnusedLocalVariable" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="SetWorkflowAction" method="execute" variable="appName" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'appName'.
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\SortingStepAction.java">
+<violation beginline="19" endline="98" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The class 'SortingStepAction' has a Cyclomatic Complexity of 2 (Highest = 9).
+</violation>
+<violation beginline="23" endline="23" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="SortingStepAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="25" endline="25" begincolumn="37" endcolumn="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="SortingStepAction" variable="response" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'response'.
+</violation>
+<violation beginline="30" endline="77" begincolumn="16" endcolumn="5" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" class="SortingStepAction" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The method 'execute' has a Cyclomatic Complexity of 9.
+</violation>
+<violation beginline="42" endline="43" begincolumn="9" endcolumn="48" rule="ForLoopsMustUseBraces" ruleset="Braces Rules" package="com.dcgenerator.web.actions" class="SortingStepAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#ForLoopsMustUseBraces" priority="3">
+Avoid using for statements without curly braces
+</violation>
+<violation beginline="62" endline="62" begincolumn="40" endcolumn="47" rule="UnusedLocalVariable" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="SortingStepAction" method="execute" variable="taskType" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'taskType'.
+</violation>
+<violation beginline="64" endline="65" begincolumn="33" endcolumn="99" rule="ForLoopsMustUseBraces" ruleset="Braces Rules" package="com.dcgenerator.web.actions" class="SortingStepAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#ForLoopsMustUseBraces" priority="3">
+Avoid using for statements without curly braces
+</violation>
+<violation beginline="67" endline="68" begincolumn="33" endcolumn="99" rule="ForLoopsMustUseBraces" ruleset="Braces Rules" package="com.dcgenerator.web.actions" class="SortingStepAction" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#ForLoopsMustUseBraces" priority="3">
+Avoid using for statements without curly braces
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\UpdateExecutionPlanAction.java">
+<violation beginline="23" endline="120" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The class 'UpdateExecutionPlanAction' has a Cyclomatic Complexity of 4 (Highest = 11).
+</violation>
+<violation beginline="27" endline="27" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="UpdateExecutionPlanAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="29" endline="29" begincolumn="37" endcolumn="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="UpdateExecutionPlanAction" variable="response" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'response'.
+</violation>
+<violation beginline="33" endline="106" begincolumn="16" endcolumn="5" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" class="UpdateExecutionPlanAction" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The method 'execute' has a Cyclomatic Complexity of 11.
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\UpdateExecutionPlanIndexAction.java">
+<violation beginline="18" endline="84" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The class 'UpdateExecutionPlanIndexAction' has a Cyclomatic Complexity of 2 (Highest = 6).
+</violation>
+<violation beginline="22" endline="22" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="UpdateExecutionPlanIndexAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="24" endline="24" begincolumn="37" endcolumn="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="UpdateExecutionPlanIndexAction" variable="response" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'response'.
+</violation>
+<violation beginline="28" endline="66" begincolumn="16" endcolumn="5" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" class="UpdateExecutionPlanIndexAction" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The method 'execute' has a Cyclomatic Complexity of 6.
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\UpdateIndexExecutionPlanAction.java">
+<violation beginline="18" endline="83" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The class 'UpdateIndexExecutionPlanAction' has a Cyclomatic Complexity of 2 (Highest = 6).
+</violation>
+<violation beginline="22" endline="22" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="UpdateIndexExecutionPlanAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="24" endline="24" begincolumn="37" endcolumn="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="UpdateIndexExecutionPlanAction" variable="response" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'response'.
+</violation>
+<violation beginline="27" endline="65" begincolumn="12" endcolumn="5" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.actions" class="UpdateIndexExecutionPlanAction" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The method 'execute' has a Cyclomatic Complexity of 6.
+</violation>
+</file>
+<file name="com\dcgenerator\web\actions\ViewStepAction.java">
+<violation beginline="22" endline="22" begincolumn="32" endcolumn="38" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="ViewStepAction" variable="context" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'context'.
+</violation>
+<violation beginline="24" endline="24" begincolumn="37" endcolumn="44" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="ViewStepAction" variable="response" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'response'.
+</violation>
+<violation beginline="30" endline="30" begincolumn="20" endcolumn="23" rule="UnusedLocalVariable" ruleset="Unused Code Rules" package="com.dcgenerator.web.actions" class="ViewStepAction" method="execute" variable="list" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'list'.
+</violation>
+</file>
+<file name="com\dcgenerator\web\utils\DCReadConfigXML.java">
+<violation beginline="20" endline="145" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.utils" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The class 'DCReadConfigXML' has a Cyclomatic Complexity of 7 (Highest = 11).
+</violation>
+<violation beginline="26" endline="98" begincolumn="16" endcolumn="9" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.utils" class="DCReadConfigXML" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The method 'loadXMLFile' has a Cyclomatic Complexity of 11.
+</violation>
+<violation beginline="106" endline="136" begincolumn="16" endcolumn="9" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="com.dcgenerator.web.utils" class="DCReadConfigXML" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The method 'populateUserInputFieldDO' has a Cyclomatic Complexity of 7.
+</violation>
+<violation beginline="116" endline="117" begincolumn="25" endcolumn="76" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="com.dcgenerator.web.utils" class="DCReadConfigXML" method="populateUserInputFieldDO" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="116" endline="117" begincolumn="25" endcolumn="76" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="com.dcgenerator.web.utils" class="DCReadConfigXML" method="populateUserInputFieldDO" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+</pmd>

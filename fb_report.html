@@ -1,0 +1,4572 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>FindBugs Report</title>
+<style type="text/css">
+		.tablerow0 {
+			background: #EEEEEE;
+		}
+
+		.tablerow1 {
+			background: white;
+		}
+
+		.detailrow0 {
+			background: #EEEEEE;
+		}
+
+		.detailrow1 {
+			background: white;
+		}
+
+		.tableheader {
+			background: #b9b9fe;
+			font-size: larger;
+		}
+
+		.tablerow0:hover, .tablerow1:hover {
+			background: #aaffaa;
+		}
+
+		.priority-1 {
+		    color: red;
+		    font-weight: bold;
+		}
+		.priority-2 {
+		    color: orange;
+		    font-weight: bold;
+		}
+		.priority-3 {
+		    color: green;
+		    font-weight: bold;
+		}
+		.priority-4 {
+		    color: blue;
+		    font-weight: bold;
+		}
+		</style>
+<script type="text/javascript">
+			function toggleRow(elid) {
+				if (document.getElementById) {
+					element = document.getElementById(elid);
+					if (element) {
+						if (element.style.display == 'none') {
+							element.style.display = 'block';
+							//window.status = 'Toggle on!';
+						} else {
+							element.style.display = 'none';
+							//window.status = 'Toggle off!';
+						}
+					}
+				}
+			}
+		</script>
+</head>
+<body>
+<h1>
+<a href="http://findbugs.sourceforge.net">FindBugs</a> Report</h1>
+<h2>Project Information</h2>
+<p>Project: 
+		</p>
+<p>FindBugs version: 1.3.9</p>
+<p>Code analyzed:</p>
+<ul>
+<li>C:\pmd\findbugs-1.3.9\lib\bcel.jar</li>
+</ul>
+<p>
+<br/>
+<br/>
+</p>
+<h2>Metrics</h2>
+<p>18540 lines of code analyzed,
+	in 385 classes, 
+	in 8 packages.</p>
+<table width="500" cellpadding="5" cellspacing="2">
+<tr class="tableheader">
+<th align="left">Metric</th>
+<th align="right">Total</th>
+<th align="right">Density*</th>
+</tr>
+<tr class="tablerow0">
+<td>High Priority Warnings</td>
+<td align="right">19</td>
+<td align="right">1.02</td>
+</tr>
+<tr class="tablerow1">
+<td>Medium Priority Warnings</td>
+<td align="right">263</td>
+<td align="right">14.19</td>
+</tr>
+<tr class="$totalClass">
+<td>
+<b>Total Warnings</b>
+</td>
+<td align="right">
+<b>282</b>
+</td>
+<td align="right">
+<b>15.21</b>
+</td>
+</tr>
+</table>
+<p>
+<i>(* Defects per Thousand lines of non-commenting source statements)</i>
+</p>
+<p>
+<br/>
+<br/>
+</p>
+<h2>Contents</h2>
+<ul>
+<li>
+<a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+</li>
+<li>
+<a href="#Warnings_EXPERIMENTAL">Experimental Warnings</a>
+</li>
+<li>
+<a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+</li>
+<li>
+<a href="#Warnings_PERFORMANCE">Performance Warnings</a>
+</li>
+<li>
+<a href="#Warnings_STYLE">Dodgy Warnings</a>
+</li>
+<li>
+<a href="#Details">Details</a>
+</li>
+</ul>
+<h1>Summary</h1>
+<table width="500" cellpadding="5" cellspacing="2">
+<tr class="tableheader">
+<th align="left">Warning Type</th>
+<th align="right">Number</th>
+</tr>
+<tr class="tablerow0">
+<td>
+<a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+</td>
+<td align="right">166</td>
+</tr>
+<tr class="tablerow1">
+<td>
+<a href="#Warnings_EXPERIMENTAL">Experimental Warnings</a>
+</td>
+<td align="right">1</td>
+</tr>
+<tr class="tablerow0">
+<td>
+<a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+</td>
+<td align="right">71</td>
+</tr>
+<tr class="tablerow1">
+<td>
+<a href="#Warnings_PERFORMANCE">Performance Warnings</a>
+</td>
+<td align="right">32</td>
+</tr>
+<tr class="tablerow0">
+<td>
+<a href="#Warnings_STYLE">Dodgy Warnings</a>
+</td>
+<td align="right">12</td>
+</tr>
+<tr class="tablerow1">
+<td>
+<b>Total</b>
+</td>
+<td align="right">
+<b>282</b>
+</td>
+</tr>
+</table>
+<h1>Warnings</h1>
+<p>Click on a warning row to see full context information.</p>
+<h2>
+<a name="Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N82475');">
+<td>
+<span class="priority-2">Dm</span>
+</td>
+<td>org.apache.bcel.util.CodeHTML.codeToHTML(ByteSequence, int) invokes System.exit(...), which shuts down the entire virtual machine</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N82475" style="display: none;">
+<a href="#DM_EXIT">Bug type DM_EXIT (click for details)</a>
+<br/>In class org.apache.bcel.util.CodeHTML<br/>In method org.apache.bcel.util.CodeHTML.codeToHTML(ByteSequence, int)<br/>At CodeHTML.java:[line 350]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N71717');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.AALOAD inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N71717" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.AALOAD<br/>At AALOAD.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N71764');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.AASTORE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N71764" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.AASTORE<br/>At AASTORE.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N71811');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.ACONST_NULL inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N71811" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.ACONST_NULL<br/>At ACONST_NULL.java:[lines 32-56]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N71858');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.ALOAD inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N71858" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.ALOAD<br/>At ALOAD.java:[lines 33-56]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N71905');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.ANEWARRAY inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N71905" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.ANEWARRAY<br/>At ANEWARRAY.java:[lines 35-77]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N71952');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.ARETURN inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N71952" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.ARETURN<br/>At ARETURN.java:[lines 32-50]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N71999');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.ARRAYLENGTH inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N71999" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.ARRAYLENGTH<br/>At ARRAYLENGTH.java:[lines 31-56]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N72046');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.ASTORE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N72046" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.ASTORE<br/>At ASTORE.java:[lines 33-56]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N72093');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.ATHROW inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N72093" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.ATHROW<br/>At ATHROW.java:[lines 32-57]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N72140');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.BALOAD inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N72140" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.BALOAD<br/>At BALOAD.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N72187');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.BASTORE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N72187" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.BASTORE<br/>At BASTORE.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N72339');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.BIPUSH inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N72339" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.BIPUSH<br/>At BIPUSH.java:[lines 40-104]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N72386');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.BREAKPOINT inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N72386" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.BREAKPOINT<br/>At BREAKPOINT.java:[lines 28-42]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N72433');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.CALOAD inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N72433" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.CALOAD<br/>At CALOAD.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N72480');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.CASTORE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N72480" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.CASTORE<br/>At CASTORE.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N72527');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.CHECKCAST inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N72527" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.CHECKCAST<br/>At CHECKCAST.java:[lines 35-83]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N72574');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.D2F inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N72574" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.D2F<br/>At D2F.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N72621');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.D2I inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N72621" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.D2I<br/>At D2I.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N72668');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.D2L inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N72668" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.D2L<br/>At D2L.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N72715');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DADD inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N72715" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DADD<br/>At DADD.java:[lines 32-50]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N72762');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DALOAD inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N72762" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DALOAD<br/>At DALOAD.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N72809');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DASTORE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N72809" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DASTORE<br/>At DASTORE.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N72856');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DCMPG inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N72856" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DCMPG<br/>At DCMPG.java:[lines 30-54]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N72903');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DCMPL inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N72903" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DCMPL<br/>At DCMPL.java:[lines 30-54]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N72950');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DCONST inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N72950" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DCONST<br/>At DCONST.java:[lines 36-79]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N72997');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DDIV inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N72997" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DDIV<br/>At DDIV.java:[lines 32-50]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N73044');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DLOAD inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N73044" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DLOAD<br/>At DLOAD.java:[lines 33-56]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N73091');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DMUL inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N73091" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DMUL<br/>At DMUL.java:[lines 32-50]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N73138');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DNEG inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N73138" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DNEG<br/>At DNEG.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N73185');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DREM inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N73185" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DREM<br/>At DREM.java:[lines 32-50]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N73232');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DRETURN inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N73232" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DRETURN<br/>At DRETURN.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N73279');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DSTORE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N73279" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DSTORE<br/>At DSTORE.java:[lines 33-56]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N73326');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DSUB inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N73326" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DSUB<br/>At DSUB.java:[lines 32-50]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N73373');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DUP inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N73373" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DUP<br/>At DUP.java:[lines 29-46]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N73561');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DUP_X1 inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N73561" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DUP_X1<br/>At DUP_X1.java:[lines 29-44]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N73608');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DUP_X2 inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N73608" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DUP_X2<br/>At DUP_X2.java:[lines 29-44]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N73420');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DUP2 inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N73420" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DUP2<br/>At DUP2.java:[lines 29-46]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N73467');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DUP2_X1 inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N73467" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DUP2_X1<br/>At DUP2_X1.java:[lines 29-44]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N73514');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.DUP2_X2 inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N73514" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.DUP2_X2<br/>At DUP2_X2.java:[lines 29-44]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N73655');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.F2D inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N73655" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.F2D<br/>At F2D.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N73702');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.F2I inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N73702" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.F2I<br/>At F2I.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N73749');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.F2L inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N73749" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.F2L<br/>At F2L.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N73796');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.FADD inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N73796" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.FADD<br/>At FADD.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N73843');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.FALOAD inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N73843" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.FALOAD<br/>At FALOAD.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N73890');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.FASTORE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N73890" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.FASTORE<br/>At FASTORE.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N73937');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.FCMPG inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N73937" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.FCMPG<br/>At FCMPG.java:[lines 29-53]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N73984');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.FCMPL inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N73984" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.FCMPL<br/>At FCMPL.java:[lines 29-53]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N74031');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.FCONST inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N74031" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.FCONST<br/>At FCONST.java:[lines 36-81]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N74078');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.FDIV inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N74078" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.FDIV<br/>At FDIV.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N74125');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.FLOAD inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N74125" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.FLOAD<br/>At FLOAD.java:[lines 33-56]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N74172');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.FMUL inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N74172" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.FMUL<br/>At FMUL.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N74219');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.FNEG inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N74219" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.FNEG<br/>At FNEG.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N74266');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.FREM inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N74266" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.FREM<br/>At FREM.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N74313');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.FRETURN inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N74313" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.FRETURN<br/>At FRETURN.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N74360');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.FSTORE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N74360" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.FSTORE<br/>At FSTORE.java:[lines 33-56]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N74407');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.FSUB inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N74407" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.FSUB<br/>At FSUB.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N75084');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.GETFIELD inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N75084" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.GETFIELD<br/>At GETFIELD.java:[lines 38-80]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N75131');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.GETSTATIC inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N75131" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.GETSTATIC<br/>At GETSTATIC.java:[lines 37-78]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N75178');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.GOTO inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N75178" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.GOTO<br/>At GOTO.java:[lines 34-88]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N75225');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.GOTO_W inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N75225" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.GOTO_W<br/>At GOTO_W.java:[lines 35-78]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N75272');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.I2B inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N75272" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.I2B<br/>At I2B.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N75319');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.I2C inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N75319" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.I2C<br/>At I2C.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N75366');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.I2D inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N75366" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.I2D<br/>At I2D.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N75413');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.I2F inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N75413" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.I2F<br/>At I2F.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N75460');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.I2L inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N75460" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.I2L<br/>At I2L.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N75507');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.I2S inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N75507" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.I2S<br/>At I2S.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N75554');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IADD inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N75554" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IADD<br/>At IADD.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N75601');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IALOAD inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N75601" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IALOAD<br/>At IALOAD.java:[lines 32-50]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N75648');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IAND inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N75648" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IAND<br/>At IAND.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N75695');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IASTORE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N75695" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IASTORE<br/>At IASTORE.java:[lines 32-50]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N75847');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.ICONST inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N75847" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.ICONST<br/>At ICONST.java:[lines 36-77]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N75894');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IDIV inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N75894" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IDIV<br/>At IDIV.java:[lines 31-59]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N76317');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IF_ACMPEQ inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N76317" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IF_ACMPEQ<br/>At IF_ACMPEQ.java:[lines 33-63]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N76364');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IF_ACMPNE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N76364" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IF_ACMPNE<br/>At IF_ACMPNE.java:[lines 33-63]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N76411');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IF_ICMPEQ inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N76411" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IF_ICMPEQ<br/>At IF_ICMPEQ.java:[lines 33-63]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N76458');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IF_ICMPGE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N76458" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IF_ICMPGE<br/>At IF_ICMPGE.java:[lines 33-63]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N76505');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IF_ICMPGT inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N76505" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IF_ICMPGT<br/>At IF_ICMPGT.java:[lines 33-63]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N76552');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IF_ICMPLE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N76552" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IF_ICMPLE<br/>At IF_ICMPLE.java:[lines 33-63]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N76599');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IF_ICMPLT inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N76599" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IF_ICMPLT<br/>At IF_ICMPLT.java:[lines 33-63]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N76646');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IF_ICMPNE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N76646" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IF_ICMPNE<br/>At IF_ICMPNE.java:[lines 33-63]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N75941');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IFEQ inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N75941" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IFEQ<br/>At IFEQ.java:[lines 33-63]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N75988');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IFGE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N75988" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IFGE<br/>At IFGE.java:[lines 33-63]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N76035');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IFGT inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N76035" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IFGT<br/>At IFGT.java:[lines 33-63]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N76082');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IFLE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N76082" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IFLE<br/>At IFLE.java:[lines 33-63]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N76129');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IFLT inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N76129" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IFLT<br/>At IFLT.java:[lines 33-63]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N76176');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IFNE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N76176" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IFNE<br/>At IFNE.java:[lines 33-63]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N76223');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IFNONNULL inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N76223" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IFNONNULL<br/>At IFNONNULL.java:[lines 33-63]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N76270');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IFNULL inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N76270" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IFNULL<br/>At IFNULL.java:[lines 33-63]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N76693');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IINC inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N76693" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IINC<br/>At IINC.java:[lines 39-157]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N76740');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.ILOAD inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N76740" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.ILOAD<br/>At ILOAD.java:[lines 33-56]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N76787');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IMPDEP1 inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N76787" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IMPDEP1<br/>At IMPDEP1.java:[lines 28-42]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N76834');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IMPDEP2 inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N76834" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IMPDEP2<br/>At IMPDEP2.java:[lines 28-42]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N76881');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IMUL inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N76881" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IMUL<br/>At IMUL.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N76928');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.INEG inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N76928" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.INEG<br/>At INEG.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N76975');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.INSTANCEOF inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N76975" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.INSTANCEOF<br/>At INSTANCEOF.java:[lines 33-72]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N77633');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.Instruction defines equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N77633" style="display: none;">
+<a href="#HE_EQUALS_USE_HASHCODE">Bug type HE_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.Instruction<br/>In method org.apache.bcel.generic.Instruction.equals(Object)<br/>At Instruction.java:[line 290]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N77022');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.INVOKEINTERFACE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N77022" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.INVOKEINTERFACE<br/>At INVOKEINTERFACE.java:[lines 42-131]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N77069');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.INVOKESPECIAL inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N77069" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.INVOKESPECIAL<br/>At INVOKESPECIAL.java:[lines 37-76]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N77116');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.INVOKESTATIC inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N77116" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.INVOKESTATIC<br/>At INVOKESTATIC.java:[lines 36-73]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N77163');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.INVOKEVIRTUAL inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N77163" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.INVOKEVIRTUAL<br/>At INVOKEVIRTUAL.java:[lines 36-75]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N77210');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IOR inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N77210" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IOR<br/>At IOR.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N77257');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IREM inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N77257" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IREM<br/>At IREM.java:[lines 31-59]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N77304');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IRETURN inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N77304" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IRETURN<br/>At IRETURN.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N77351');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.ISHL inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N77351" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.ISHL<br/>At ISHL.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N77398');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.ISHR inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N77398" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.ISHR<br/>At ISHR.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N77445');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.ISTORE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N77445" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.ISTORE<br/>At ISTORE.java:[lines 33-56]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N77492');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.ISUB inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N77492" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.ISUB<br/>At ISUB.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N77539');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IUSHR inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N77539" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IUSHR<br/>At IUSHR.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N77586');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.IXOR inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N77586" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.IXOR<br/>At IXOR.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N78067');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.JSR inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N78067" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.JSR<br/>At JSR.java:[lines 34-85]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N78114');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.JSR_W inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N78114" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.JSR_W<br/>At JSR_W.java:[lines 35-78]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N78161');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.L2D inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N78161" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.L2D<br/>At L2D.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N78208');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.L2F inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N78208" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.L2F<br/>At L2F.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N78255');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.L2I inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N78255" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.L2I<br/>At L2I.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N78302');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LADD inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N78302" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LADD<br/>At LADD.java:[lines 30-48]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N78349');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LALOAD inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N78349" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LALOAD<br/>At LALOAD.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N78396');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LAND inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N78396" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LAND<br/>At LAND.java:[lines 30-48]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N78443');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LASTORE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N78443" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LASTORE<br/>At LASTORE.java:[lines 31-49]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N78490');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LCMP inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N78490" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LCMP<br/>At LCMP.java:[lines 30-54]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N78642');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LCONST inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N78642" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LCONST<br/>At LCONST.java:[lines 36-79]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N78794');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LDC inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N78794" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LDC<br/>At LDC.java:[lines 38-147]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N78993');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LDC_W inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N78993" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LDC_W<br/>At LDC_W.java:[lines 36-53]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N78946');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LDC2_W inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N78946" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LDC2_W<br/>At LDC2_W.java:[lines 33-81]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N79040');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LDIV inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N79040" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LDIV<br/>At LDIV.java:[lines 30-56]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N79087');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LLOAD inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N79087" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LLOAD<br/>At LLOAD.java:[lines 33-53]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N79134');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LMUL inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N79134" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LMUL<br/>At LMUL.java:[lines 30-48]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N79181');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LNEG inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N79181" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LNEG<br/>At LNEG.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N79228');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LOOKUPSWITCH inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N79228" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LOOKUPSWITCH<br/>At LOOKUPSWITCH.java:[lines 36-94]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N79275');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LOR inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N79275" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LOR<br/>At LOR.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N79322');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LREM inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N79322" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LREM<br/>At LREM.java:[lines 29-55]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N79369');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LRETURN inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N79369" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LRETURN<br/>At LRETURN.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N79416');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LSHL inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N79416" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LSHL<br/>At LSHL.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N79463');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LSHR inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N79463" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LSHR<br/>At LSHR.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N79510');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LSTORE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N79510" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LSTORE<br/>At LSTORE.java:[lines 33-53]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N79557');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LSUB inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N79557" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LSUB<br/>At LSUB.java:[lines 30-48]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N79604');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LUSHR inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N79604" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LUSHR<br/>At LUSHR.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N79651');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.LXOR inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N79651" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.LXOR<br/>At LXOR.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N79698');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.MONITORENTER inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N79698" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.MONITORENTER<br/>At MONITORENTER.java:[lines 29-52]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N79745');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.MONITOREXIT inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N79745" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.MONITOREXIT<br/>At MONITOREXIT.java:[lines 29-52]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N79792');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.MULTIANEWARRAY inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N79792" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.MULTIANEWARRAY<br/>At MULTIANEWARRAY.java:[lines 42-145]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N80106');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.NEW inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N80106" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.NEW<br/>At NEW.java:[lines 35-75]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N80153');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.NEWARRAY inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N80153" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.NEWARRAY<br/>At NEWARRAY.java:[lines 41-119]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N80200');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.NOP inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N80200" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.NOP<br/>At NOP.java:[lines 28-42]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N80247');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.POP inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N80247" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.POP<br/>At POP.java:[lines 30-47]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N80294');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.POP2 inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N80294" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.POP2<br/>At POP2.java:[lines 30-47]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N80341');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.PUTFIELD inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N80341" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.PUTFIELD<br/>At PUTFIELD.java:[lines 37-79]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N80388');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.PUTSTATIC inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N80388" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.PUTSTATIC<br/>At PUTSTATIC.java:[lines 37-78]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N80435');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.RET inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N80435" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.RET<br/>At RET.java:[lines 41-138]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N80482');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.RETURN inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N80482" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.RETURN<br/>At RETURN.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N80529');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.SALOAD inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N80529" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.SALOAD<br/>At SALOAD.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N80576');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.SASTORE inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N80576" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.SASTORE<br/>At SASTORE.java:[lines 29-47]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N80728');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.SIPUSH inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N80728" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.SIPUSH<br/>At SIPUSH.java:[lines 40-102]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N80775');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.SWAP inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N80775" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.SWAP<br/>At SWAP.java:[lines 29-46]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N81158');">
+<td>
+<span class="priority-2">HE</span>
+</td>
+<td>org.apache.bcel.generic.TABLESWITCH inherits equals and uses Object.hashCode()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N81158" style="display: none;">
+<a href="#HE_INHERITS_EQUALS_USE_HASHCODE">Bug type HE_INHERITS_EQUALS_USE_HASHCODE (click for details)</a>
+<br/>In class org.apache.bcel.generic.TABLESWITCH<br/>At TABLESWITCH.java:[lines 36-106]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N81399');">
+<td>
+<span class="priority-2">IC</span>
+</td>
+<td>Initialization of org.apache.bcel.generic.Type accesses class org.apache.bcel.generic.ObjectType, which isn't initialized yet</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N81399" style="display: none;">
+<a href="#IC_SUPERCLASS_USES_SUBCLASS_DURING_INITIALIZATION">Bug type IC_SUPERCLASS_USES_SUBCLASS_DURING_INITIALIZATION (click for details)</a>
+<br/>In class org.apache.bcel.generic.Type<br/>In method org.apache.bcel.generic.Type.&lt;static initializer&gt;()<br/>In class org.apache.bcel.generic.ObjectType<br/>At Type.java:[line 47]<br/>Another occurrence at Type.java:[line 48]<br/>Another occurrence at Type.java:[line 49]<br/>Another occurrence at Type.java:[line 50]<br/>Another occurrence at Type.java:[line 51]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N77998');">
+<td>
+<span class="priority-2">It</span>
+</td>
+<td>org.apache.bcel.generic.InstructionList$1.next() can't throw NoSuchElementException</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N77998" style="display: none;">
+<a href="#IT_NO_SUCH_ELEMENT">Bug type IT_NO_SUCH_ELEMENT (click for details)</a>
+<br/>In class org.apache.bcel.generic.InstructionList$1<br/>In method org.apache.bcel.generic.InstructionList$1.next()<br/>At InstructionList.java:[lines 995-997]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67343');">
+<td>
+<span class="priority-2">Nm</span>
+</td>
+<td>Class org.apache.bcel.classfile.CodeException is not derived from an Exception, even though it is named as such</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67343" style="display: none;">
+<a href="#NM_CLASS_NOT_EXCEPTION">Bug type NM_CLASS_NOT_EXCEPTION (click for details)</a>
+<br/>In class org.apache.bcel.classfile.CodeException<br/>At CodeException.java:[lines 51-212]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N82345');">
+<td>
+<span class="priority-1">Nm</span>
+</td>
+<td>The class name org.apache.bcel.util.ClassLoader shadows the simple name of the superclass java.lang.ClassLoader</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N82345" style="display: none;">
+<a href="#NM_SAME_SIMPLE_NAME_AS_SUPERCLASS">Bug type NM_SAME_SIMPLE_NAME_AS_SUPERCLASS (click for details)</a>
+<br/>In class org.apache.bcel.util.ClassLoader<br/>In class java.lang.ClassLoader<br/>At ClassLoader.java:[lines 53-182]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N83665');">
+<td>
+<span class="priority-1">RC</span>
+</td>
+<td>Suspicious comparison of a Integer reference to constant in new org.apache.bcel.verifier.structurals.Subroutines(MethodGen)</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N83665" style="display: none;">
+<a href="#RC_REF_COMPARISON_BAD_PRACTICE">Bug type RC_REF_COMPARISON_BAD_PRACTICE (click for details)</a>
+<br/>In class org.apache.bcel.verifier.structurals.Subroutines<br/>In method new org.apache.bcel.verifier.structurals.Subroutines(MethodGen)<br/>Actual type Integer<br/>Value loaded from field org.apache.bcel.verifier.structurals.Subroutines.WHITE<br/>At Subroutines.java:[line 444]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N69579');">
+<td>
+<span class="priority-2">RV</span>
+</td>
+<td>org.apache.bcel.classfile.JavaClass.dump(File) ignores exceptional return value of java.io.File.mkdirs()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N69579" style="display: none;">
+<a href="#RV_RETURN_VALUE_IGNORED_BAD_PRACTICE">Bug type RV_RETURN_VALUE_IGNORED_BAD_PRACTICE (click for details)</a>
+<br/>In class org.apache.bcel.classfile.JavaClass<br/>In method org.apache.bcel.classfile.JavaClass.dump(File)<br/>Called method java.io.File.mkdirs()<br/>At JavaClass.java:[line 299]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N81807');">
+<td>
+<span class="priority-2">RV</span>
+</td>
+<td>org.apache.bcel.util.Class2HTML.main(String[]) ignores exceptional return value of java.io.File.mkdirs()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N81807" style="display: none;">
+<a href="#RV_RETURN_VALUE_IGNORED_BAD_PRACTICE">Bug type RV_RETURN_VALUE_IGNORED_BAD_PRACTICE (click for details)</a>
+<br/>In class org.apache.bcel.util.Class2HTML<br/>In method org.apache.bcel.util.Class2HTML.main(String[])<br/>Called method java.io.File.mkdirs()<br/>At Class2HTML.java:[line 115]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N69715');">
+<td>
+<span class="priority-2">Se</span>
+</td>
+<td>The field org.apache.bcel.classfile.JavaClass.repository is transient but isn't set by deserialization</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N69715" style="display: none;">
+<a href="#SE_TRANSIENT_FIELD_NOT_RESTORED">Bug type SE_TRANSIENT_FIELD_NOT_RESTORED (click for details)</a>
+<br/>In class org.apache.bcel.classfile.JavaClass<br/>Field org.apache.bcel.classfile.JavaClass.repository<br/>In JavaClass.java</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N70225');">
+<td>
+<span class="priority-2">Se</span>
+</td>
+<td>Class org.apache.bcel.classfile.StackMap defines non-transient non-serializable instance field map</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N70225" style="display: none;">
+<a href="#SE_BAD_FIELD">Bug type SE_BAD_FIELD (click for details)</a>
+<br/>In class org.apache.bcel.classfile.StackMap<br/>Field org.apache.bcel.classfile.StackMap.map<br/>In StackMap.java</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N82410');">
+<td>
+<span class="priority-2">Se</span>
+</td>
+<td>Class org.apache.bcel.util.ClassPath$Zip defines non-transient non-serializable instance field zip</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N82410" style="display: none;">
+<a href="#SE_BAD_FIELD">Bug type SE_BAD_FIELD (click for details)</a>
+<br/>In class org.apache.bcel.util.ClassPath$Zip<br/>Field org.apache.bcel.util.ClassPath$Zip.zip<br/>In ClassPath.java</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N69668');">
+<td>
+<span class="priority-2">SnVI</span>
+</td>
+<td>org.apache.bcel.classfile.JavaClass is Serializable; consider declaring a serialVersionUID</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N69668" style="display: none;">
+<a href="#SE_NO_SERIALVERSIONID">Bug type SE_NO_SERIALVERSIONID (click for details)</a>
+<br/>In class org.apache.bcel.classfile.JavaClass<br/>At JavaClass.java:[lines 52-938]</p>
+</td>
+</tr>
+</table>
+<h2>
+<a name="Warnings_EXPERIMENTAL">Experimental Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N82682');">
+<td>
+<span class="priority-2">OBL</span>
+</td>
+<td>Method org.apache.bcel.util.SyntheticRepository.loadClass(Class) may fail to clean up java.io.InputStream</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N82682" style="display: none;">
+<a href="#OBL_UNSATISFIED_OBLIGATION">Bug type OBL_UNSATISFIED_OBLIGATION (click for details)</a>
+<br/>In class org.apache.bcel.util.SyntheticRepository<br/>In method org.apache.bcel.util.SyntheticRepository.loadClass(Class)<br/>Reference type java.io.InputStream<br/>1 instances of obligation remaining<br/>Obligation to clean up resource created at SyntheticRepository.java:[line 158] is not discharged<br/>Remaining obligations: {InputStream x 1}</p>
+</td>
+</tr>
+</table>
+<h2>
+<a name="Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66591');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.AbstractLocalVariableTable.getLocalVariableTable() may expose internal representation by returning AbstractLocalVariableTable.local_variable_table</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66591" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.AbstractLocalVariableTable<br/>In method org.apache.bcel.classfile.AbstractLocalVariableTable.getLocalVariableTable()<br/>Field org.apache.bcel.classfile.AbstractLocalVariableTable.local_variable_table<br/>At AbstractLocalVariableTable.java:[line 101]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66779');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.Code.getAttributes() may expose internal representation by returning Code.attributes</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66779" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.Code<br/>In method org.apache.bcel.classfile.Code.getAttributes()<br/>Field org.apache.bcel.classfile.Code.attributes<br/>At Code.java:[line 173]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66868');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.Code.getCode() may expose internal representation by returning Code.code</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66868" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.Code<br/>In method org.apache.bcel.classfile.Code.getCode()<br/>Field org.apache.bcel.classfile.Code.code<br/>At Code.java:[line 207]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66957');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.Code.getExceptionTable() may expose internal representation by returning Code.exception_table</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66957" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.Code<br/>In method org.apache.bcel.classfile.Code.getExceptionTable()<br/>Field org.apache.bcel.classfile.Code.exception_table<br/>At Code.java:[line 216]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67600');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.ConstantPool.getConstantPool() may expose internal representation by returning ConstantPool.constant_pool</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67600" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.ConstantPool<br/>In method org.apache.bcel.classfile.ConstantPool.getConstantPool()<br/>Field org.apache.bcel.classfile.ConstantPool.constant_pool<br/>At ConstantPool.java:[line 255]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67788');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.Deprecated.getBytes() may expose internal representation by returning Deprecated.bytes</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67788" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.Deprecated<br/>In method org.apache.bcel.classfile.Deprecated.getBytes()<br/>Field org.apache.bcel.classfile.Deprecated.bytes<br/>At Deprecated.java:[line 108]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N68075');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.ExceptionTable.getExceptionIndexTable() may expose internal representation by returning ExceptionTable.exception_index_table</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N68075" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.ExceptionTable<br/>In method org.apache.bcel.classfile.ExceptionTable.getExceptionIndexTable()<br/>Field org.apache.bcel.classfile.ExceptionTable.exception_index_table<br/>At ExceptionTable.java:[line 114]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N68263');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.FieldOrMethod.getAttributes() may expose internal representation by returning FieldOrMethod.attributes</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N68263" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.FieldOrMethod<br/>In method org.apache.bcel.classfile.FieldOrMethod.getAttributes()<br/>Field org.apache.bcel.classfile.FieldOrMethod.attributes<br/>At FieldOrMethod.java:[line 113]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N68451');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.InnerClasses.getInnerClasses() may expose internal representation by returning InnerClasses.inner_classes</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N68451" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.InnerClasses<br/>In method org.apache.bcel.classfile.InnerClasses.getInnerClasses()<br/>Field org.apache.bcel.classfile.InnerClasses.inner_classes<br/>At InnerClasses.java:[line 113]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N68639');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.JavaClass.getAttributes() may expose internal representation by returning JavaClass.attributes</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N68639" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.JavaClass<br/>In method org.apache.bcel.classfile.JavaClass.getAttributes()<br/>Field org.apache.bcel.classfile.JavaClass.attributes<br/>At JavaClass.java:[line 398]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N68728');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.JavaClass.getFields() may expose internal representation by returning JavaClass.fields</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N68728" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.JavaClass<br/>In method org.apache.bcel.classfile.JavaClass.getFields()<br/>Field org.apache.bcel.classfile.JavaClass.fields<br/>At JavaClass.java:[line 440]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N68817');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.JavaClass.getInterfaceIndices() may expose internal representation by returning JavaClass.interfaces</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N68817" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.JavaClass<br/>In method org.apache.bcel.classfile.JavaClass.getInterfaceIndices()<br/>Field org.apache.bcel.classfile.JavaClass.interfaces<br/>At JavaClass.java:[line 464]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N68906');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.JavaClass.getInterfaceNames() may expose internal representation by returning JavaClass.interface_names</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N68906" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.JavaClass<br/>In method org.apache.bcel.classfile.JavaClass.getInterfaceNames()<br/>Field org.apache.bcel.classfile.JavaClass.interface_names<br/>At JavaClass.java:[line 456]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N68995');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.JavaClass.getMethods() may expose internal representation by returning JavaClass.methods</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N68995" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.JavaClass<br/>In method org.apache.bcel.classfile.JavaClass.getMethods()<br/>Field org.apache.bcel.classfile.JavaClass.methods<br/>At JavaClass.java:[line 480]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N69780');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.LineNumberTable.getLineNumberTable() may expose internal representation by returning LineNumberTable.line_number_table</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N69780" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.LineNumberTable<br/>In method org.apache.bcel.classfile.LineNumberTable.getLineNumberTable()<br/>Field org.apache.bcel.classfile.LineNumberTable.line_number_table<br/>At LineNumberTable.java:[line 112]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N70037');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.StackMap.getStackMap() may expose internal representation by returning StackMap.map</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N70037" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.StackMap<br/>In method org.apache.bcel.classfile.StackMap.getStackMap()<br/>Field org.apache.bcel.classfile.StackMap.map<br/>At StackMap.java:[line 95]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N70290');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.StackMapEntry.getTypesOfLocals() may expose internal representation by returning StackMapEntry.types_of_locals</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N70290" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.StackMapEntry<br/>In method org.apache.bcel.classfile.StackMapEntry.getTypesOfLocals()<br/>Field org.apache.bcel.classfile.StackMapEntry.types_of_locals<br/>At StackMapEntry.java:[line 150]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N70379');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.StackMapEntry.getTypesOfStackItems() may expose internal representation by returning StackMapEntry.types_of_stack_items</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N70379" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.StackMapEntry<br/>In method org.apache.bcel.classfile.StackMapEntry.getTypesOfStackItems()<br/>Field org.apache.bcel.classfile.StackMapEntry.types_of_stack_items<br/>At StackMapEntry.java:[line 170]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N70864');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.Synthetic.getBytes() may expose internal representation by returning Synthetic.bytes</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N70864" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.Synthetic<br/>In method org.apache.bcel.classfile.Synthetic.getBytes()<br/>Field org.apache.bcel.classfile.Synthetic.bytes<br/>At Synthetic.java:[line 114]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N71151');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.classfile.Unknown.getBytes() may expose internal representation by returning Unknown.bytes</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N71151" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.classfile.Unknown<br/>In method org.apache.bcel.classfile.Unknown.getBytes()<br/>Field org.apache.bcel.classfile.Unknown.bytes<br/>At Unknown.java:[line 137]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N77840');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.generic.InstructionList.getInstructionPositions() may expose internal representation by returning InstructionList.byte_positions</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N77840" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.generic.InstructionList<br/>In method org.apache.bcel.generic.InstructionList.getInstructionPositions()<br/>Field org.apache.bcel.generic.InstructionList.byte_positions<br/>At InstructionList.java:[line 1035]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N80891');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.generic.Select.getIndices() may expose internal representation by returning Select.indices</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N80891" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.generic.Select<br/>In method org.apache.bcel.generic.Select.getIndices()<br/>Field org.apache.bcel.generic.Select.indices<br/>At Select.java:[line 226]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N80980');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.generic.Select.getMatchs() may expose internal representation by returning Select.match</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N80980" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.generic.Select<br/>In method org.apache.bcel.generic.Select.getMatchs()<br/>Field org.apache.bcel.generic.Select.match<br/>At Select.java:[line 218]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N81069');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.generic.Select.getTargets() may expose internal representation by returning Select.targets</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N81069" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.generic.Select<br/>In method org.apache.bcel.generic.Select.getTargets()<br/>Field org.apache.bcel.generic.Select.targets<br/>At Select.java:[line 234]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N81205');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>org.apache.bcel.generic.TargetLostException.getTargets() may expose internal representation by returning TargetLostException.targets</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N81205" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class org.apache.bcel.generic.TargetLostException<br/>In method org.apache.bcel.generic.TargetLostException.getTargets()<br/>Field org.apache.bcel.generic.TargetLostException.targets<br/>At TargetLostException.java:[line 65]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66680');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.AbstractLocalVariableTable.setLocalVariableTable(LocalVariable[]) may expose internal representation by storing an externally mutable object into AbstractLocalVariableTable.local_variable_table</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66680" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.AbstractLocalVariableTable<br/>In method org.apache.bcel.classfile.AbstractLocalVariableTable.setLocalVariableTable(LocalVariable[])<br/>Field org.apache.bcel.classfile.AbstractLocalVariableTable.local_variable_table<br/>Local variable named local_variable_table<br/>At AbstractLocalVariableTable.java:[line 148]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67046');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.Code.setAttributes(Attribute[]) may expose internal representation by storing an externally mutable object into Code.attributes</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67046" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.Code<br/>In method org.apache.bcel.classfile.Code.setAttributes(Attribute[])<br/>Field org.apache.bcel.classfile.Code.attributes<br/>Local variable named attributes<br/>At Code.java:[line 266]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67145');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.Code.setCode(byte[]) may expose internal representation by storing an externally mutable object into Code.code</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67145" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.Code<br/>In method org.apache.bcel.classfile.Code.setCode(byte[])<br/>Field org.apache.bcel.classfile.Code.code<br/>Local variable named code<br/>At Code.java:[line 276]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67244');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.Code.setExceptionTable(CodeException[]) may expose internal representation by storing an externally mutable object into Code.exception_table</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67244" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.Code<br/>In method org.apache.bcel.classfile.Code.setExceptionTable(CodeException[])<br/>Field org.apache.bcel.classfile.Code.exception_table<br/>Local variable named exception_table<br/>At Code.java:[line 285]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67689');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.ConstantPool.setConstantPool(Constant[]) may expose internal representation by storing an externally mutable object into ConstantPool.constant_pool</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67689" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.ConstantPool<br/>In method org.apache.bcel.classfile.ConstantPool.setConstantPool(Constant[])<br/>Field org.apache.bcel.classfile.ConstantPool.constant_pool<br/>Local variable named constant_pool<br/>At ConstantPool.java:[line 319]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67877');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>new org.apache.bcel.classfile.Deprecated(int, int, byte[], ConstantPool) may expose internal representation by storing an externally mutable object into Deprecated.bytes</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67877" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.Deprecated<br/>In method new org.apache.bcel.classfile.Deprecated(int, int, byte[], ConstantPool)<br/>Field org.apache.bcel.classfile.Deprecated.bytes<br/>Local variable named bytes<br/>At Deprecated.java:[line 55]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67976');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.Deprecated.setBytes(byte[]) may expose internal representation by storing an externally mutable object into Deprecated.bytes</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67976" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.Deprecated<br/>In method org.apache.bcel.classfile.Deprecated.setBytes(byte[])<br/>Field org.apache.bcel.classfile.Deprecated.bytes<br/>Local variable named bytes<br/>At Deprecated.java:[line 116]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N68164');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.ExceptionTable.setExceptionIndexTable(int[]) may expose internal representation by storing an externally mutable object into ExceptionTable.exception_index_table</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N68164" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.ExceptionTable<br/>In method org.apache.bcel.classfile.ExceptionTable.setExceptionIndexTable(int[])<br/>Field org.apache.bcel.classfile.ExceptionTable.exception_index_table<br/>Local variable named exception_index_table<br/>At ExceptionTable.java:[line 144]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N68352');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.FieldOrMethod.setAttributes(Attribute[]) may expose internal representation by storing an externally mutable object into FieldOrMethod.attributes</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N68352" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.FieldOrMethod<br/>In method org.apache.bcel.classfile.FieldOrMethod.setAttributes(Attribute[])<br/>Field org.apache.bcel.classfile.FieldOrMethod.attributes<br/>Local variable named attributes<br/>At FieldOrMethod.java:[line 121]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N68540');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.InnerClasses.setInnerClasses(InnerClass[]) may expose internal representation by storing an externally mutable object into InnerClasses.inner_classes</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N68540" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.InnerClasses<br/>In method org.apache.bcel.classfile.InnerClasses.setInnerClasses(InnerClass[])<br/>Field org.apache.bcel.classfile.InnerClasses.inner_classes<br/>Local variable named inner_classes<br/>At InnerClasses.java:[line 121]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N69084');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.JavaClass.setAttributes(Attribute[]) may expose internal representation by storing an externally mutable object into JavaClass.attributes</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N69084" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.JavaClass<br/>In method org.apache.bcel.classfile.JavaClass.setAttributes(Attribute[])<br/>Field org.apache.bcel.classfile.JavaClass.attributes<br/>Local variable named attributes<br/>At JavaClass.java:[line 549]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N69183');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.JavaClass.setFields(Field[]) may expose internal representation by storing an externally mutable object into JavaClass.fields</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N69183" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.JavaClass<br/>In method org.apache.bcel.classfile.JavaClass.setFields(Field[])<br/>Field org.apache.bcel.classfile.JavaClass.fields<br/>Local variable named fields<br/>At JavaClass.java:[line 581]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N69282');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.JavaClass.setInterfaceNames(String[]) may expose internal representation by storing an externally mutable object into JavaClass.interface_names</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N69282" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.JavaClass<br/>In method org.apache.bcel.classfile.JavaClass.setInterfaceNames(String[])<br/>Field org.apache.bcel.classfile.JavaClass.interface_names<br/>Local variable named interface_names<br/>At JavaClass.java:[line 597]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N69381');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.JavaClass.setInterfaces(int[]) may expose internal representation by storing an externally mutable object into JavaClass.interfaces</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N69381" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.JavaClass<br/>In method org.apache.bcel.classfile.JavaClass.setInterfaces(int[])<br/>Field org.apache.bcel.classfile.JavaClass.interfaces<br/>Local variable named interfaces<br/>At JavaClass.java:[line 605]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N69480');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.JavaClass.setMethods(Method[]) may expose internal representation by storing an externally mutable object into JavaClass.methods</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N69480" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.JavaClass<br/>In method org.apache.bcel.classfile.JavaClass.setMethods(Method[])<br/>Field org.apache.bcel.classfile.JavaClass.methods<br/>Local variable named methods<br/>At JavaClass.java:[line 621]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N69869');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.LineNumberTable.setLineNumberTable(LineNumber[]) may expose internal representation by storing an externally mutable object into LineNumberTable.line_number_table</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N69869" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.LineNumberTable<br/>In method org.apache.bcel.classfile.LineNumberTable.setLineNumberTable(LineNumber[])<br/>Field org.apache.bcel.classfile.LineNumberTable.line_number_table<br/>Local variable named line_number_table<br/>At LineNumberTable.java:[line 120]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N70126');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.StackMap.setStackMap(StackMapEntry[]) may expose internal representation by storing an externally mutable object into StackMap.map</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N70126" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.StackMap<br/>In method org.apache.bcel.classfile.StackMap.setStackMap(StackMapEntry[])<br/>Field org.apache.bcel.classfile.StackMap.map<br/>Local variable named map<br/>At StackMap.java:[line 103]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N70468');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>new org.apache.bcel.classfile.StackMapEntry(int, int, StackMapType[], int, StackMapType[], ConstantPool) may expose internal representation by storing an externally mutable object into StackMapEntry.types_of_locals</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N70468" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.StackMapEntry<br/>In method new org.apache.bcel.classfile.StackMapEntry(int, int, StackMapType[], int, StackMapType[], ConstantPool)<br/>Field org.apache.bcel.classfile.StackMapEntry.types_of_locals<br/>Local variable named types_of_locals<br/>At StackMapEntry.java:[line 67]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N70567');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>new org.apache.bcel.classfile.StackMapEntry(int, int, StackMapType[], int, StackMapType[], ConstantPool) may expose internal representation by storing an externally mutable object into StackMapEntry.types_of_stack_items</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N70567" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.StackMapEntry<br/>In method new org.apache.bcel.classfile.StackMapEntry(int, int, StackMapType[], int, StackMapType[], ConstantPool)<br/>Field org.apache.bcel.classfile.StackMapEntry.types_of_stack_items<br/>Local variable named types_of_stack_items<br/>At StackMapEntry.java:[line 69]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N70666');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.StackMapEntry.setTypesOfLocals(StackMapType[]) may expose internal representation by storing an externally mutable object into StackMapEntry.types_of_locals</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N70666" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.StackMapEntry<br/>In method org.apache.bcel.classfile.StackMapEntry.setTypesOfLocals(StackMapType[])<br/>Field org.apache.bcel.classfile.StackMapEntry.types_of_locals<br/>Local variable named t<br/>At StackMapEntry.java:[line 145]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N70765');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.StackMapEntry.setTypesOfStackItems(StackMapType[]) may expose internal representation by storing an externally mutable object into StackMapEntry.types_of_stack_items</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N70765" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.StackMapEntry<br/>In method org.apache.bcel.classfile.StackMapEntry.setTypesOfStackItems(StackMapType[])<br/>Field org.apache.bcel.classfile.StackMapEntry.types_of_stack_items<br/>Local variable named t<br/>At StackMapEntry.java:[line 165]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N70953');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>new org.apache.bcel.classfile.Synthetic(int, int, byte[], ConstantPool) may expose internal representation by storing an externally mutable object into Synthetic.bytes</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N70953" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.Synthetic<br/>In method new org.apache.bcel.classfile.Synthetic(int, int, byte[], ConstantPool)<br/>Field org.apache.bcel.classfile.Synthetic.bytes<br/>Local variable named bytes<br/>At Synthetic.java:[line 61]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N71052');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.Synthetic.setBytes(byte[]) may expose internal representation by storing an externally mutable object into Synthetic.bytes</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N71052" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.Synthetic<br/>In method org.apache.bcel.classfile.Synthetic.setBytes(byte[])<br/>Field org.apache.bcel.classfile.Synthetic.bytes<br/>Local variable named bytes<br/>At Synthetic.java:[line 122]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N71240');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>new org.apache.bcel.classfile.Unknown(int, int, byte[], ConstantPool) may expose internal representation by storing an externally mutable object into Unknown.bytes</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N71240" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.Unknown<br/>In method new org.apache.bcel.classfile.Unknown(int, int, byte[], ConstantPool)<br/>Field org.apache.bcel.classfile.Unknown.bytes<br/>Local variable named bytes<br/>At Unknown.java:[line 82]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N71339');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.classfile.Unknown.setBytes(byte[]) may expose internal representation by storing an externally mutable object into Unknown.bytes</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N71339" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.classfile.Unknown<br/>In method org.apache.bcel.classfile.Unknown.setBytes(byte[])<br/>Field org.apache.bcel.classfile.Unknown.bytes<br/>Local variable named bytes<br/>At Unknown.java:[line 153]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N79839');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.generic.MethodGen.setArgumentNames(String[]) may expose internal representation by storing an externally mutable object into MethodGen.arg_names</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N79839" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.generic.MethodGen<br/>In method org.apache.bcel.generic.MethodGen.setArgumentNames(String[])<br/>Field org.apache.bcel.generic.MethodGen.arg_names<br/>Local variable named arg_names<br/>At MethodGen.java:[line 775]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N79938');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>org.apache.bcel.generic.MethodGen.setArgumentTypes(Type[]) may expose internal representation by storing an externally mutable object into MethodGen.arg_types</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N79938" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.generic.MethodGen<br/>In method org.apache.bcel.generic.MethodGen.setArgumentTypes(Type[])<br/>Field org.apache.bcel.generic.MethodGen.arg_types<br/>Local variable named arg_types<br/>At MethodGen.java:[line 755]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N82177');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>new org.apache.bcel.util.ClassLoader(String[]) may expose internal representation by storing an externally mutable object into ClassLoader.ignored_packages</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N82177" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class org.apache.bcel.util.ClassLoader<br/>In method new org.apache.bcel.util.ClassLoader(String[])<br/>Field org.apache.bcel.util.ClassLoader.ignored_packages<br/>Local variable named ignored_packages<br/>At ClassLoader.java:[line 84]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N65556');">
+<td>
+<span class="priority-1">MS</span>
+</td>
+<td>org.apache.bcel.Constants.ACCESS_NAMES is a mutable array</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N65556" style="display: none;">
+<a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
+<br/>In class org.apache.bcel.Constants<br/>Field org.apache.bcel.Constants.ACCESS_NAMES<br/>At Constants.java:[line 77]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N65625');">
+<td>
+<span class="priority-1">MS</span>
+</td>
+<td>org.apache.bcel.Constants.ATTRIBUTE_NAMES is a mutable array</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N65625" style="display: none;">
+<a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
+<br/>In class org.apache.bcel.Constants<br/>Field org.apache.bcel.Constants.ATTRIBUTE_NAMES<br/>At Constants.java:[line 743]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N65694');">
+<td>
+<span class="priority-1">MS</span>
+</td>
+<td>org.apache.bcel.Constants.CONSTANT_NAMES is a mutable array</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N65694" style="display: none;">
+<a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
+<br/>In class org.apache.bcel.Constants<br/>Field org.apache.bcel.Constants.CONSTANT_NAMES<br/>At Constants.java:[line 97]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N65763');">
+<td>
+<span class="priority-1">MS</span>
+</td>
+<td>org.apache.bcel.Constants.INTERFACES_IMPLEMENTED_BY_ARRAYS is a mutable array</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N65763" style="display: none;">
+<a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
+<br/>In class org.apache.bcel.Constants<br/>Field org.apache.bcel.Constants.INTERFACES_IMPLEMENTED_BY_ARRAYS<br/>At Constants.java:[line 116]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N65832');">
+<td>
+<span class="priority-1">MS</span>
+</td>
+<td>org.apache.bcel.Constants.ITEM_NAMES is a mutable array</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N65832" style="display: none;">
+<a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
+<br/>In class org.apache.bcel.Constants<br/>Field org.apache.bcel.Constants.ITEM_NAMES<br/>At Constants.java:[line 765]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N65901');">
+<td>
+<span class="priority-1">MS</span>
+</td>
+<td>org.apache.bcel.Constants.OPCODE_NAMES is a mutable array</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N65901" style="display: none;">
+<a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
+<br/>In class org.apache.bcel.Constants<br/>Field org.apache.bcel.Constants.OPCODE_NAMES<br/>At Constants.java:[line 560]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N65970');">
+<td>
+<span class="priority-1">MS</span>
+</td>
+<td>org.apache.bcel.Constants.SHORT_TYPE_NAMES is a mutable array</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N65970" style="display: none;">
+<a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
+<br/>In class org.apache.bcel.Constants<br/>Field org.apache.bcel.Constants.SHORT_TYPE_NAMES<br/>At Constants.java:[line 419]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66039');">
+<td>
+<span class="priority-1">MS</span>
+</td>
+<td>org.apache.bcel.Constants.TYPE_NAMES is a mutable array</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66039" style="display: none;">
+<a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
+<br/>In class org.apache.bcel.Constants<br/>Field org.apache.bcel.Constants.TYPE_NAMES<br/>At Constants.java:[line 399]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66108');">
+<td>
+<span class="priority-2">MS</span>
+</td>
+<td>org.apache.bcel.Constants.CONSUME_STACK is a mutable array</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66108" style="display: none;">
+<a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
+<br/>In class org.apache.bcel.Constants<br/>Field org.apache.bcel.Constants.CONSUME_STACK<br/>At Constants.java:[line 612]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66177');">
+<td>
+<span class="priority-2">MS</span>
+</td>
+<td>org.apache.bcel.Constants.NO_OF_OPERANDS is a mutable array</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66177" style="display: none;">
+<a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
+<br/>In class org.apache.bcel.Constants<br/>Field org.apache.bcel.Constants.NO_OF_OPERANDS<br/>At Constants.java:[line 429]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66246');">
+<td>
+<span class="priority-2">MS</span>
+</td>
+<td>org.apache.bcel.Constants.PRODUCE_STACK is a mutable array</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66246" style="display: none;">
+<a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
+<br/>In class org.apache.bcel.Constants<br/>Field org.apache.bcel.Constants.PRODUCE_STACK<br/>At Constants.java:[line 666]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66315');">
+<td>
+<span class="priority-2">MS</span>
+</td>
+<td>org.apache.bcel.Constants.TYPE_OF_OPERANDS is a mutable array</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66315" style="display: none;">
+<a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
+<br/>In class org.apache.bcel.Constants<br/>Field org.apache.bcel.Constants.TYPE_OF_OPERANDS<br/>At Constants.java:[line 493]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66384');">
+<td>
+<span class="priority-1">MS</span>
+</td>
+<td>org.apache.bcel.ExceptionConstants.EXCS_ARRAY_EXCEPTION is a mutable array</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66384" style="display: none;">
+<a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
+<br/>In class org.apache.bcel.ExceptionConstants<br/>Field org.apache.bcel.ExceptionConstants.EXCS_ARRAY_EXCEPTION<br/>At ExceptionConstants.java:[line 73]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66453');">
+<td>
+<span class="priority-1">MS</span>
+</td>
+<td>org.apache.bcel.ExceptionConstants.EXCS_CLASS_AND_INTERFACE_RESOLUTION is a mutable array</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66453" style="display: none;">
+<a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
+<br/>In class org.apache.bcel.ExceptionConstants<br/>Field org.apache.bcel.ExceptionConstants.EXCS_CLASS_AND_INTERFACE_RESOLUTION<br/>At ExceptionConstants.java:[line 63]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66522');">
+<td>
+<span class="priority-1">MS</span>
+</td>
+<td>org.apache.bcel.ExceptionConstants.EXCS_FIELD_AND_METHOD_RESOLUTION is a mutable array</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66522" style="display: none;">
+<a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
+<br/>In class org.apache.bcel.ExceptionConstants<br/>Field org.apache.bcel.ExceptionConstants.EXCS_FIELD_AND_METHOD_RESOLUTION<br/>At ExceptionConstants.java:[line 67]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N77702');">
+<td>
+<span class="priority-1">MS</span>
+</td>
+<td>org.apache.bcel.generic.InstructionConstants.INSTRUCTIONS is a mutable array</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N77702" style="display: none;">
+<a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
+<br/>In class org.apache.bcel.generic.InstructionConstants<br/>Field org.apache.bcel.generic.InstructionConstants.INSTRUCTIONS<br/>At InstructionConstants.java:[line 168]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N82276');">
+<td>
+<span class="priority-2">MS</span>
+</td>
+<td>org.apache.bcel.util.ClassLoader.DEFAULT_IGNORED_PACKAGES should be package protected</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N82276" style="display: none;">
+<a href="#MS_PKGPROTECT">Bug type MS_PKGPROTECT (click for details)</a>
+<br/>In class org.apache.bcel.util.ClassLoader<br/>Field org.apache.bcel.util.ClassLoader.DEFAULT_IGNORED_PACKAGES<br/>At ClassLoader.java:[line 55]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N83168');">
+<td>
+<span class="priority-2">MS</span>
+</td>
+<td>org.apache.bcel.verifier.structurals.Frame._this should be package protected</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N83168" style="display: none;">
+<a href="#MS_PKGPROTECT">Bug type MS_PKGPROTECT (click for details)</a>
+<br/>In class org.apache.bcel.verifier.structurals.Frame<br/>Field org.apache.bcel.verifier.structurals.Frame._this<br/>In Frame.java</p>
+</td>
+</tr>
+</table>
+<h2>
+<a name="Warnings_PERFORMANCE">Performance Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67390');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.classfile.ConstantInteger.getConstantValue(ConstantPool) invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67390" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.classfile.ConstantInteger<br/>In method org.apache.bcel.classfile.ConstantInteger.getConstantValue(ConstantPool)<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At ConstantInteger.java:[line 117]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67495');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.classfile.ConstantLong.getConstantValue(ConstantPool) invokes inefficient new Long(long) constructor; use Long.valueOf(long) instead</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67495" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.classfile.ConstantLong<br/>In method org.apache.bcel.classfile.ConstantLong.getConstantValue(ConstantPool)<br/>Called method new Long(long)<br/>Should call Long.valueOf(long) instead<br/>At ConstantLong.java:[line 117]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N71438');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.classfile.Utility.wrap(ThreadLocal, int) invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N71438" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.classfile.Utility<br/>In method org.apache.bcel.classfile.Utility.wrap(ThreadLocal, int)<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At Utility.java:[line 52]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N71612');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.classfile.Utility$1.initialValue() invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N71612" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.classfile.Utility$1<br/>In method org.apache.bcel.classfile.Utility$1.initialValue()<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At Utility.java:[line 58]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N72234');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.generic.BIPUSH.getValue() invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N72234" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.generic.BIPUSH<br/>In method org.apache.bcel.generic.BIPUSH.getValue()<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At BIPUSH.java:[line 79]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N74454');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.generic.FieldGen.setInitValue(byte) invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N74454" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.generic.FieldGen<br/>In method org.apache.bcel.generic.FieldGen.setInitValue(byte)<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At FieldGen.java:[line 152]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N74559');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.generic.FieldGen.setInitValue(char) invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N74559" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.generic.FieldGen<br/>In method org.apache.bcel.generic.FieldGen.setInitValue(char)<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At FieldGen.java:[line 144]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N74664');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.generic.FieldGen.setInitValue(int) invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N74664" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.generic.FieldGen<br/>In method org.apache.bcel.generic.FieldGen.setInitValue(int)<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At FieldGen.java:[line 128]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N74769');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.generic.FieldGen.setInitValue(long) invokes inefficient new Long(long) constructor; use Long.valueOf(long) instead</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N74769" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.generic.FieldGen<br/>In method org.apache.bcel.generic.FieldGen.setInitValue(long)<br/>Called method new Long(long)<br/>Should call Long.valueOf(long) instead<br/>At FieldGen.java:[line 120]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N74874');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.generic.FieldGen.setInitValue(short) invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N74874" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.generic.FieldGen<br/>In method org.apache.bcel.generic.FieldGen.setInitValue(short)<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At FieldGen.java:[line 136]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N74979');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.generic.FieldGen.setInitValue(boolean) invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N74979" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.generic.FieldGen<br/>In method org.apache.bcel.generic.FieldGen.setInitValue(boolean)<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At FieldGen.java:[line 160]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N75742');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.generic.ICONST.getValue() invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N75742" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.generic.ICONST<br/>In method org.apache.bcel.generic.ICONST.getValue()<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At ICONST.java:[line 52]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N78537');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.generic.LCONST.getValue() invokes inefficient new Long(long) constructor; use Long.valueOf(long) instead</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N78537" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.generic.LCONST<br/>In method org.apache.bcel.generic.LCONST.getValue()<br/>Called method new Long(long)<br/>Should call Long.valueOf(long) instead<br/>At LCONST.java:[line 54]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N78689');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.generic.LDC.getValue(ConstantPoolGen) invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N78689" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.generic.LDC<br/>In method org.apache.bcel.generic.LDC.getValue(ConstantPoolGen)<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At LDC.java:[line 102]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N78841');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.generic.LDC2_W.getValue(ConstantPoolGen) invokes inefficient new Long(long) constructor; use Long.valueOf(long) instead</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N78841" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.generic.LDC2_W<br/>In method org.apache.bcel.generic.LDC2_W.getValue(ConstantPoolGen)<br/>Called method new Long(long)<br/>Should call Long.valueOf(long) instead<br/>At LDC2_W.java:[line 58]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N80623');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.generic.SIPUSH.getValue() invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N80623" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.generic.SIPUSH<br/>In method org.apache.bcel.generic.SIPUSH.getValue()<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At SIPUSH.java:[line 77]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N81294');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.generic.Type.wrap(ThreadLocal, int) invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N81294" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.generic.Type<br/>In method org.apache.bcel.generic.Type.wrap(ThreadLocal, int)<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At Type.java:[line 159]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N81542');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.generic.Type$3.initialValue() invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N81542" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.generic.Type$3<br/>In method org.apache.bcel.generic.Type$3.initialValue()<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At Type.java:[line 148]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N83063');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.verifier.statics.IntList.add(int) invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N83063" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.verifier.statics.IntList<br/>In method org.apache.bcel.verifier.statics.IntList.add(int)<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At IntList.java:[line 38]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N83413');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.verifier.structurals.Subroutines.&lt;static initializer&gt;() invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N83413" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.verifier.structurals.Subroutines<br/>In method org.apache.bcel.verifier.structurals.Subroutines.&lt;static initializer&gt;()<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At Subroutines.java:[line 344]<br/>Another occurrence at Subroutines.java:[line 345]<br/>Another occurrence at Subroutines.java:[line 346]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N83546');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.verifier.structurals.Subroutines.noRecursiveCalls(Subroutine, Set) invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N83546" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.verifier.structurals.Subroutines<br/>In method org.apache.bcel.verifier.structurals.Subroutines.noRecursiveCalls(Subroutine, Set)<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At Subroutines.java:[line 513]<br/>Another occurrence at Subroutines.java:[line 521]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N83773');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.verifier.structurals.Subroutines$SubroutineImpl._getRecursivelyAccessedLocalsIndicesHelper(Set, Subroutine[]) invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N83773" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.verifier.structurals.Subroutines$SubroutineImpl<br/>In method org.apache.bcel.verifier.structurals.Subroutines$SubroutineImpl._getRecursivelyAccessedLocalsIndicesHelper(Set, Subroutine[])<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At Subroutines.java:[line 251]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N83878');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.verifier.structurals.Subroutines$SubroutineImpl.getAccessedLocalsIndices() invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N83878" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.verifier.structurals.Subroutines$SubroutineImpl<br/>In method org.apache.bcel.verifier.structurals.Subroutines$SubroutineImpl.getAccessedLocalsIndices()<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At Subroutines.java:[line 274]<br/>Another occurrence at Subroutines.java:[line 282]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N83997');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Method org.apache.bcel.verifier.structurals.Subroutines$SubroutineImpl.getRecursivelyAccessedLocalsIndices() invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N83997" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class org.apache.bcel.verifier.structurals.Subroutines$SubroutineImpl<br/>In method org.apache.bcel.verifier.structurals.Subroutines$SubroutineImpl.getRecursivelyAccessedLocalsIndices()<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At Subroutines.java:[line 230]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N82787');">
+<td>
+<span class="priority-1">Dm</span>
+</td>
+<td>org.apache.bcel.verifier.TransitiveHull.update(String) forces garbage collection; extremely dubious except in benchmarking code</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N82787" style="display: none;">
+<a href="#DM_GC">Bug type DM_GC (click for details)</a>
+<br/>In class org.apache.bcel.verifier.TransitiveHull<br/>In method org.apache.bcel.verifier.TransitiveHull.update(String)<br/>At TransitiveHull.java:[line 44]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N84102');">
+<td>
+<span class="priority-2">SBSC</span>
+</td>
+<td>Method org.apache.bcel.verifier.structurals.Subroutines$SubroutineImpl.toString() concatenates strings using + in a loop</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N84102" style="display: none;">
+<a href="#SBSC_USE_STRINGBUFFER_CONCATENATION">Bug type SBSC_USE_STRINGBUFFER_CONCATENATION (click for details)</a>
+<br/>In class org.apache.bcel.verifier.structurals.Subroutines$SubroutineImpl<br/>In method org.apache.bcel.verifier.structurals.Subroutines$SubroutineImpl.toString()<br/>At Subroutines.java:[line 119]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N82856');">
+<td>
+<span class="priority-2">SBSC</span>
+</td>
+<td>Method org.apache.bcel.verifier.VerifierAppFrame.pass3aJList_valueChanged(ListSelectionEvent) concatenates strings using + in a loop</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N82856" style="display: none;">
+<a href="#SBSC_USE_STRINGBUFFER_CONCATENATION">Bug type SBSC_USE_STRINGBUFFER_CONCATENATION (click for details)</a>
+<br/>In class org.apache.bcel.verifier.VerifierAppFrame<br/>In method org.apache.bcel.verifier.VerifierAppFrame.pass3aJList_valueChanged(ListSelectionEvent)<br/>At VerifierAppFrame.java:[line 336]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N82925');">
+<td>
+<span class="priority-2">SBSC</span>
+</td>
+<td>Method org.apache.bcel.verifier.VerifierAppFrame.pass3bJList_valueChanged(ListSelectionEvent) concatenates strings using + in a loop</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N82925" style="display: none;">
+<a href="#SBSC_USE_STRINGBUFFER_CONCATENATION">Bug type SBSC_USE_STRINGBUFFER_CONCATENATION (click for details)</a>
+<br/>In class org.apache.bcel.verifier.VerifierAppFrame<br/>In method org.apache.bcel.verifier.VerifierAppFrame.pass3bJList_valueChanged(ListSelectionEvent)<br/>At VerifierAppFrame.java:[line 367]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N82994');">
+<td>
+<span class="priority-2">SBSC</span>
+</td>
+<td>Method org.apache.bcel.verifier.VerifierAppFrame.verify() concatenates strings using + in a loop</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N82994" style="display: none;">
+<a href="#SBSC_USE_STRINGBUFFER_CONCATENATION">Bug type SBSC_USE_STRINGBUFFER_CONCATENATION (click for details)</a>
+<br/>In class org.apache.bcel.verifier.VerifierAppFrame<br/>In method org.apache.bcel.verifier.VerifierAppFrame.verify()<br/>At VerifierAppFrame.java:[line 300]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N82613');">
+<td>
+<span class="priority-2">UPM</span>
+</td>
+<td>Private method org.apache.bcel.util.InstructionFinder.pattern2string(String) is never called</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N82613" style="display: none;">
+<a href="#UPM_UNCALLED_PRIVATE_METHOD">Bug type UPM_UNCALLED_PRIVATE_METHOD (click for details)</a>
+<br/>In class org.apache.bcel.util.InstructionFinder<br/>In method org.apache.bcel.util.InstructionFinder.pattern2string(String)<br/>At InstructionFinder.java:[line 452]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N77771');">
+<td>
+<span class="priority-2">UrF</span>
+</td>
+<td>Unread field: org.apache.bcel.generic.InstructionFactory$MethodObject.access</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N77771" style="display: none;">
+<a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
+<br/>In class org.apache.bcel.generic.InstructionFactory$MethodObject<br/>Field org.apache.bcel.generic.InstructionFactory$MethodObject.access<br/>At InstructionFactory.java:[line 143]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N82544');">
+<td>
+<span class="priority-2">UrF</span>
+</td>
+<td>Unread field: org.apache.bcel.util.CodeHTML.methods</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N82544" style="display: none;">
+<a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
+<br/>In class org.apache.bcel.util.CodeHTML<br/>Field org.apache.bcel.util.CodeHTML.methods<br/>At CodeHTML.java:[line 57]</p>
+</td>
+</tr>
+</table>
+<h2>
+<a name="Warnings_STYLE">Dodgy Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N81716');">
+<td>
+<span class="priority-1">DLS</span>
+</td>
+<td>Dead store to method_html in new org.apache.bcel.util.Class2HTML(JavaClass, String)</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N81716" style="display: none;">
+<a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
+<br/>In class org.apache.bcel.util.Class2HTML<br/>In method new org.apache.bcel.util.Class2HTML(JavaClass, String)<br/>Local variable named method_html<br/>At Class2HTML.java:[line 88]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N83233');">
+<td>
+<span class="priority-1">DLS</span>
+</td>
+<td>Dead store to random in org.apache.bcel.verifier.structurals.Pass3bVerifier.circulationPump(ControlFlowGraph, InstructionContext, Frame, InstConstraintVisitor, ExecutionVisitor)</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N83233" style="display: none;">
+<a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
+<br/>In class org.apache.bcel.verifier.structurals.Pass3bVerifier<br/>In method org.apache.bcel.verifier.structurals.Pass3bVerifier.circulationPump(ControlFlowGraph, InstructionContext, Frame, InstConstraintVisitor, ExecutionVisitor)<br/>Local variable named random<br/>At Pass3bVerifier.java:[line 130]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N69968');">
+<td>
+<span class="priority-2">IM</span>
+</td>
+<td>Computation of average could overflow in org.apache.bcel.classfile.LineNumberTable.getSourceLine(int)</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N69968" style="display: none;">
+<a href="#IM_AVERAGE_COMPUTATION_COULD_OVERFLOW">Bug type IM_AVERAGE_COMPUTATION_COULD_OVERFLOW (click for details)</a>
+<br/>In class org.apache.bcel.classfile.LineNumberTable<br/>In method org.apache.bcel.classfile.LineNumberTable.getSourceLine(int)<br/>At LineNumberTable.java:[line 163]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N77929');">
+<td>
+<span class="priority-2">IM</span>
+</td>
+<td>Computation of average could overflow in org.apache.bcel.generic.InstructionList.findHandle(InstructionHandle[], int[], int, int)</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N77929" style="display: none;">
+<a href="#IM_AVERAGE_COMPUTATION_COULD_OVERFLOW">Bug type IM_AVERAGE_COMPUTATION_COULD_OVERFLOW (click for details)</a>
+<br/>In class org.apache.bcel.generic.InstructionList<br/>In method org.apache.bcel.generic.InstructionList.findHandle(InstructionHandle[], int[], int, int)<br/>At InstructionList.java:[line 118]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N80037');">
+<td>
+<span class="priority-2">IM</span>
+</td>
+<td>Computation of average could overflow in org.apache.bcel.generic.MethodGen.sort(LocalVariableGen[], int, int)</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N80037" style="display: none;">
+<a href="#IM_AVERAGE_COMPUTATION_COULD_OVERFLOW">Bug type IM_AVERAGE_COMPUTATION_COULD_OVERFLOW (click for details)</a>
+<br/>In class org.apache.bcel.generic.MethodGen<br/>In method org.apache.bcel.generic.MethodGen.sort(LocalVariableGen[], int, int)<br/>At MethodGen.java:[line 321]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N80822');">
+<td>
+<span class="priority-2">IM</span>
+</td>
+<td>Computation of average could overflow in org.apache.bcel.generic.SWITCH.sort(int, int)</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N80822" style="display: none;">
+<a href="#IM_AVERAGE_COMPUTATION_COULD_OVERFLOW">Bug type IM_AVERAGE_COMPUTATION_COULD_OVERFLOW (click for details)</a>
+<br/>In class org.apache.bcel.generic.SWITCH<br/>In method org.apache.bcel.generic.SWITCH.sort(int, int)<br/>At SWITCH.java:[line 103]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N71543');">
+<td>
+<span class="priority-2">SF</span>
+</td>
+<td>Switch statement found in org.apache.bcel.classfile.Utility.codeToString(ByteSequence, ConstantPool, boolean) where one case falls through to the next case</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N71543" style="display: none;">
+<a href="#SF_SWITCH_FALLTHROUGH">Bug type SF_SWITCH_FALLTHROUGH (click for details)</a>
+<br/>In class org.apache.bcel.classfile.Utility<br/>In method org.apache.bcel.classfile.Utility.codeToString(ByteSequence, ConstantPool, boolean)<br/>At Utility.java:[lines 325-327]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N81647');">
+<td>
+<span class="priority-2">SF</span>
+</td>
+<td>Switch statement found in org.apache.bcel.util.BCELFactory.visitAllocationInstruction(AllocationInstruction) where one case falls through to the next case</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N81647" style="display: none;">
+<a href="#SF_SWITCH_FALLTHROUGH">Bug type SF_SWITCH_FALLTHROUGH (click for details)</a>
+<br/>In class org.apache.bcel.util.BCELFactory<br/>In method org.apache.bcel.util.BCELFactory.visitAllocationInstruction(AllocationInstruction)<br/>At BCELFactory.java:[lines 183-186]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N81896');">
+<td>
+<span class="priority-1">ST</span>
+</td>
+<td>Write to static field org.apache.bcel.util.Class2HTML.class_name from instance method new org.apache.bcel.util.Class2HTML(JavaClass, String)</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N81896" style="display: none;">
+<a href="#ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD">Bug type ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD (click for details)</a>
+<br/>In class org.apache.bcel.util.Class2HTML<br/>In method new org.apache.bcel.util.Class2HTML(JavaClass, String)<br/>Field org.apache.bcel.util.Class2HTML.class_name<br/>At Class2HTML.java:[line 72]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N81985');">
+<td>
+<span class="priority-1">ST</span>
+</td>
+<td>Write to static field org.apache.bcel.util.Class2HTML.constant_pool from instance method new org.apache.bcel.util.Class2HTML(JavaClass, String)</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N81985" style="display: none;">
+<a href="#ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD">Bug type ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD (click for details)</a>
+<br/>In class org.apache.bcel.util.Class2HTML<br/>In method new org.apache.bcel.util.Class2HTML(JavaClass, String)<br/>Field org.apache.bcel.util.Class2HTML.constant_pool<br/>At Class2HTML.java:[line 73]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N82074');">
+<td>
+<span class="priority-2">ST</span>
+</td>
+<td>Write to static field org.apache.bcel.util.Class2HTML.class_package from instance method new org.apache.bcel.util.Class2HTML(JavaClass, String)</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N82074" style="display: none;">
+<a href="#ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD">Bug type ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD (click for details)</a>
+<br/>In class org.apache.bcel.util.Class2HTML<br/>In method new org.apache.bcel.util.Class2HTML(JavaClass, String)<br/>Field org.apache.bcel.util.Class2HTML.class_package<br/>At Class2HTML.java:[line 77]<br/>Another occurrence at Class2HTML.java:[line 79]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N83324');">
+<td>
+<span class="priority-2">ST</span>
+</td>
+<td>Write to static field org.apache.bcel.verifier.structurals.Frame._this from instance method org.apache.bcel.verifier.structurals.Pass3bVerifier.do_verify()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N83324" style="display: none;">
+<a href="#ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD">Bug type ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD (click for details)</a>
+<br/>In class org.apache.bcel.verifier.structurals.Pass3bVerifier<br/>In method org.apache.bcel.verifier.structurals.Pass3bVerifier.do_verify()<br/>Field org.apache.bcel.verifier.structurals.Frame._this<br/>At Pass3bVerifier.java:[line 304]</p>
+</td>
+</tr>
+</table>
+<h1>
+<a name="Details">Details</a>
+</h1>
+<h2>
+<a name="DM_NUMBER_CTOR">DM_NUMBER_CTOR: Method invokes inefficient Number constructor; use static valueOf instead</a>
+</h2>
+      
+      <p>
+      Using <code>new Integer(int)</code> is guaranteed to always result in a new object whereas
+      <code>Integer.valueOf(int)</code> allows caching of values to be done by the compiler, class library, or JVM.
+      Using of cached values avoids object allocation and the code will be faster.
+      </p>
+      <p>
+      Values between -128 and 127 are guaranteed to have corresponding cached instances
+      and using <code>valueOf</code> is approximately 3.5 times faster than using constructor.
+      For values outside the constant range the performance of both styles is the same.
+      </p>
+      <p>
+      Unless the class must be compatible with JVMs predating Java 1.5,
+      use either autoboxing or the <code>valueOf()</code> method when creating instances of
+      <code>Long</code>, <code>Integer</code>, <code>Short</code>, <code>Character</code>, and <code>Byte</code>.
+      </p>
+      
+    
+<h2>
+<a name="DLS_DEAD_LOCAL_STORE">DLS_DEAD_LOCAL_STORE: Dead store to local variable</a>
+</h2>
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables.  Because FindBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+
+    
+<h2>
+<a name="DM_GC">DM_GC: Explicit garbage collection; extremely dubious except in benchmarking code</a>
+</h2>
+
+  <p> Code explicitly invokes garbage collection.
+  Except for specific use in benchmarking, this is very dubious.</p>
+  <p>In the past, situations where people have explicitly invoked
+  the garbage collector in routines such as close or finalize methods
+  has led to huge performance black holes. Garbage collection
+   can be expensive. Any situation that forces hundreds or thousands
+   of garbage collections will bring the machine to a crawl.</p>
+
+    
+<h2>
+<a name="DM_EXIT">DM_EXIT: Method invokes System.exit(...)</a>
+</h2>
+
+  <p> Invoking System.exit shuts down the entire Java virtual machine. This
+   should only been done when it is appropriate. Such calls make it
+   hard or impossible for your code to be invoked by other code.
+   Consider throwing a RuntimeException instead.</p>
+
+    
+<h2>
+<a name="EI_EXPOSE_REP">EI_EXPOSE_REP: May expose internal representation by returning reference to mutable object</a>
+</h2>
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+
+    
+<h2>
+<a name="EI_EXPOSE_REP2">EI_EXPOSE_REP2: May expose internal representation by incorporating reference to mutable object</a>
+</h2>
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+
+    
+<h2>
+<a name="HE_EQUALS_USE_HASHCODE">HE_EQUALS_USE_HASHCODE: Class defines equals() and uses Object.hashCode()</a>
+</h2>
+
+  <p> This class overrides <code>equals(Object)</code>, but does not
+  override <code>hashCode()</code>, and inherits the implementation of
+  <code>hashCode()</code> from <code>java.lang.Object</code> (which returns
+  the identity hash code, an arbitrary value assigned to the object
+  by the VM).&nbsp; Therefore, the class is very likely to violate the
+  invariant that equal objects must have equal hashcodes.</p>
+
+<p>If you don't think instances of this class will ever be inserted into a HashMap/HashTable,
+the recommended <code>hashCode</code> implementation to use is:</p>
+<pre>public int hashCode() {
+  assert false : "hashCode not designed";
+  return 42; // any arbitrary constant will do 
+  }</pre>
+
+    
+<h2>
+<a name="HE_INHERITS_EQUALS_USE_HASHCODE">HE_INHERITS_EQUALS_USE_HASHCODE: Class inherits equals() and uses Object.hashCode()</a>
+</h2>
+
+  <p> This class inherits <code>equals(Object)</code> from an abstract
+  superclass, and <code>hashCode()</code> from
+<code>java.lang.Object</code> (which returns
+  the identity hash code, an arbitrary value assigned to the object
+  by the VM).&nbsp; Therefore, the class is very likely to violate the
+  invariant that equal objects must have equal hashcodes.</p>
+
+  <p>If you don't want to define a hashCode method, and/or don't
+   believe the object will ever be put into a HashMap/Hashtable,
+   define the <code>hashCode()</code> method
+   to throw <code>UnsupportedOperationException</code>.</p>
+
+    
+<h2>
+<a name="IC_SUPERCLASS_USES_SUBCLASS_DURING_INITIALIZATION">IC_SUPERCLASS_USES_SUBCLASS_DURING_INITIALIZATION: Superclass uses subclass during initialization</a>
+</h2>
+
+  <p> During the initialization of a class, the class makes an active use of a subclass.
+That subclass will not yet be initialized at the time of this use.
+For example, in the following code, <code>foo</code> will be null.</p>
+
+<pre>
+public class CircularClassInitialization {
+	static class InnerClassSingleton extends CircularClassInitialization {
+		static InnerClassSingleton singleton = new InnerClassSingleton();
+	}
+	
+	static CircularClassInitialization foo = InnerClassSingleton.singleton;
+}
+</pre>
+
+
+    
+<h2>
+<a name="IM_AVERAGE_COMPUTATION_COULD_OVERFLOW">IM_AVERAGE_COMPUTATION_COULD_OVERFLOW: Computation of average could overflow</a>
+</h2>
+
+<p>The code computes the average of two integers using either division or signed right shift,
+and then uses the result as the index of an array.
+If the values being averaged are very large, this can overflow (resulting in the computation
+of a negative average).  Assuming that the result is intended to be nonnegative, you 
+can use an unsigned right shift instead. In other words, rather that using <code>(low+high)/2</code>,
+use <code>(low+high) &gt;&gt;&gt; 1</code>
+</p>
+<p>This bug exists in many earlier implementations of binary search and merge sort.
+Martin Buchholz <a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6412541">found and fixed it</a>
+in the JDK libraries, and Joshua Bloch
+<a href="http://googleresearch.blogspot.com/2006/06/extra-extra-read-all-about-it-nearly.html">widely
+publicized the bug pattern</a>.
+</p>
+
+    
+<h2>
+<a name="IT_NO_SUCH_ELEMENT">IT_NO_SUCH_ELEMENT: Iterator next() method can't throw NoSuchElementException</a>
+</h2>
+
+  <p> This class implements the <code>java.util.Iterator</code> interface.&nbsp;
+  However, its <code>next()</code> method is not capable of throwing
+  <code>java.util.NoSuchElementException</code>.&nbsp; The <code>next()</code>
+  method should be changed so it throws <code>NoSuchElementException</code>
+  if is called when there are no more elements to return.</p>
+
+    
+<h2>
+<a name="MS_MUTABLE_ARRAY">MS_MUTABLE_ARRAY: Field is a mutable array</a>
+</h2>
+
+<p> A final static field references an array
+   and can be accessed by malicious code or
+        by accident from another package.
+   This code can freely modify the contents of the array.</p>
+
+    
+<h2>
+<a name="MS_PKGPROTECT">MS_PKGPROTECT: Field should be package protected</a>
+</h2>
+
+  <p> A mutable static field could be changed by malicious code or
+   by accident.
+   The field could be made package protected to avoid
+   this vulnerability.</p>
+
+    
+<h2>
+<a name="NM_CLASS_NOT_EXCEPTION">NM_CLASS_NOT_EXCEPTION: Class is not derived from an Exception, even though it is named as such</a>
+</h2>
+
+<p> This class is not derived from another exception, but ends with 'Exception'. This will
+be confusing to users of this class.</p>
+
+    
+<h2>
+<a name="NM_SAME_SIMPLE_NAME_AS_SUPERCLASS">NM_SAME_SIMPLE_NAME_AS_SUPERCLASS: Class names shouldn't shadow simple name of superclass</a>
+</h2>
+
+  <p> This class has a simple name that is identical to that of its superclass, except
+that its superclass is in a different package (e.g., <code>alpha.Foo</code> extends <code>beta.Foo</code>). 
+This can be exceptionally confusing, create lots of situations in which you have to look at import statements
+to resolve references and creates many
+opportunities to accidently define methods that do not override methods in their superclasses.
+</p>
+
+    
+<h2>
+<a name="OBL_UNSATISFIED_OBLIGATION">OBL_UNSATISFIED_OBLIGATION: Method may fail to clean up stream or resource</a>
+</h2>
+		  
+		  <p>
+		  This method may fail to clean up (close, dispose of) a stream,
+		  database object, or other
+		  resource requiring an explicit cleanup operation.
+		  </p>
+		  
+		  <p>
+		  In general, if a method opens a stream or other resource,
+		  the method should use a try/finally block to ensure that
+		  the stream or resource is cleaned up before the method
+		  returns.
+		  </p>
+		  
+		  <p>
+		  This bug pattern is essentially the same as the
+		  OS_OPEN_STREAM and ODR_OPEN_DATABASE_RESOURCE
+		  bug patterns, but is based on a different
+		  (and hopefully better) static analysis technique.
+		  We are interested is getting feedback about the
+		  usefulness of this bug pattern.
+		  To send feedback, either:
+		  </p>
+		  <ul>
+			<li>send email to findbugs@cs.umd.edu</li>
+			<li>file a bug report: <a href="http://findbugs.sourceforge.net/reportingBugs.html">http://findbugs.sourceforge.net/reportingBugs.html</a></li>
+		  </ul>
+		  
+		  <p>
+		  In particular,
+		  the false-positive suppression heuristics for this
+		  bug pattern have not been extensively tuned, so
+		  reports about false positives are helpful to us.
+		  </p>
+		  
+		  <p>
+		  See Weimer and Necula, <i>Finding and Preventing Run-Time Error Handling Mistakes</i>, for
+		  a description of the analysis technique.
+		  </p>
+		  
+	  
+<h2>
+<a name="RC_REF_COMPARISON_BAD_PRACTICE">RC_REF_COMPARISON_BAD_PRACTICE: Suspicious reference comparison to constant</a>
+</h2>
+
+<p> This method compares a reference value to a constant using the == or != operator,
+where the correct way to compare instances of this type is generally
+with the equals() method.  
+It is possible to create distinct instances that are equal but do not compare as == since
+they are different objects.
+Examples of classes which should generally
+not be compared by reference are java.lang.Integer, java.lang.Float, etc.</p>
+
+    
+<h2>
+<a name="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE">RV_RETURN_VALUE_IGNORED_BAD_PRACTICE: Method ignores exceptional return value</a>
+</h2>
+
+   <p> This method returns a value that is not checked. The return value should be checked
+since it can indicate an unusual or unexpected function execution. For
+example, the <code>File.delete()</code> method returns false
+if the file could not be successfully deleted (rather than 
+throwing an Exception).
+If you don't check the result, you won't notice if the method invocation
+signals unexpected behavior by returning an atypical return value.
+</p>
+
+    
+<h2>
+<a name="SBSC_USE_STRINGBUFFER_CONCATENATION">SBSC_USE_STRINGBUFFER_CONCATENATION: Method concatenates strings using + in a loop</a>
+</h2>
+
+<p> The method seems to be building a String using concatenation in a loop.
+In each iteration, the String is converted to a StringBuffer/StringBuilder,
+   appended to, and converted back to a String.
+   This can lead to a cost quadratic in the number of iterations,
+   as the growing string is recopied in each iteration. </p>
+
+<p>Better performance can be obtained by using
+a StringBuffer (or StringBuilder in Java 1.5) explicitly.</p>
+
+<p> For example:</p>
+<pre>
+  // This is bad
+  String s = "";
+  for (int i = 0; i &lt; field.length; ++i) {
+    s = s + field[i];
+  }
+
+  // This is better
+  StringBuffer buf = new StringBuffer();
+  for (int i = 0; i &lt; field.length; ++i) {
+    buf.append(field[i]);
+  }
+  String s = buf.toString();
+</pre>
+
+    
+<h2>
+<a name="SE_BAD_FIELD">SE_BAD_FIELD: Non-transient non-serializable instance field in serializable class</a>
+</h2>
+
+<p> This Serializable class defines a non-primitive instance field which is neither transient,
+Serializable, or <code>java.lang.Object</code>, and does not appear to implement
+the <code>Externalizable</code> interface or the
+<code>readObject()</code> and <code>writeObject()</code> methods.&nbsp;
+Objects of this class will not be deserialized correctly if a non-Serializable
+object is stored in this field.</p>
+
+    
+<h2>
+<a name="SE_TRANSIENT_FIELD_NOT_RESTORED">SE_TRANSIENT_FIELD_NOT_RESTORED: Transient field that isn't set by deserialization. </a>
+</h2>
+
+  <p> This class contains a field that is updated at multiple places in the class, thus it seems to be part of the state of the class. However, since the field is marked as transient and not set in readObject or readResolve, it will contain the default value in any 
+deserialized instance of the class.
+</p>
+
+    
+<h2>
+<a name="SF_SWITCH_FALLTHROUGH">SF_SWITCH_FALLTHROUGH: Switch statement found where one case falls through to the next case</a>
+</h2>
+
+  <p> This method contains a switch statement where one case branch will fall through to the next case.
+  Usually you need to end this case with a break or return.</p>
+
+    
+<h2>
+<a name="SE_NO_SERIALVERSIONID">SE_NO_SERIALVERSIONID: Class is Serializable, but doesn't define serialVersionUID</a>
+</h2>
+
+  <p> This class implements the <code>Serializable</code> interface, but does
+  not define a <code>serialVersionUID</code> field.&nbsp;
+  A change as simple as adding a reference to a .class object
+    will add synthetic fields to the class,
+   which will unfortunately change the implicit
+   serialVersionUID (e.g., adding a reference to <code>String.class</code>
+   will generate a static field <code>class$java$lang$String</code>).
+   Also, different source code to bytecode compilers may use different
+   naming conventions for synthetic variables generated for
+   references to class objects or inner classes.
+   To ensure interoperability of Serializable across versions,
+   consider adding an explicit serialVersionUID.</p>
+
+    
+<h2>
+<a name="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD">ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD: Write to static field from instance method</a>
+</h2>
+
+  <p> This instance method writes to a static field. This is tricky to get
+correct if multiple instances are being manipulated,
+and generally bad practice.
+</p>
+
+    
+<h2>
+<a name="UPM_UNCALLED_PRIVATE_METHOD">UPM_UNCALLED_PRIVATE_METHOD: Private method is never called</a>
+</h2>
+
+<p> This private method is never called. Although it is
+possible that the method will be invoked through reflection,
+it is more likely that the method is never used, and should be
+removed.
+</p>
+
+
+<h2>
+<a name="URF_UNREAD_FIELD">URF_UNREAD_FIELD: Unread field</a>
+</h2>
+
+  <p> This field is never read.&nbsp; Consider removing it from the class.</p>
+
+    </body>
+</html>
